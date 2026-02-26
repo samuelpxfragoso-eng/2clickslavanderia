@@ -78,7 +78,7 @@ const FAQS = [
   },
   {
     q: "Posso lavar edredons de casal ou king?",
-    a: "Sim! Nossas máquinas de 'Dois Sextos' possuem capacidade industrial, sendo perfeitas para edredons, cobertores pesados e grandes volumes de roupa."
+    a: "Sim! Nossas máquinas de 'Dois Cestos' possuem capacidade industrial, sendo perfeitas para edredons, cobertores pesados e grandes volumes de roupa."
   },
   {
     q: "Quais as formas de pagamento aceitas?",
@@ -94,7 +94,7 @@ const FAQS = [
   },
   {
     q: "Como funciona o sistema de cashback?",
-    a: "É nosso programa de fidelidade: ao acumular R$ 160,00 em gastos, você recebe automaticamente R$ 16,00 de crédito para utilizar em uma lavagem extra de um sexto."
+    a: "É nosso programa de fidelidade: ao acumular R$ 160,00 em gastos, você recebe automaticamente R$ 16,00 de crédito para utilizar em uma lavagem extra de um cesto."
   },
   {
     q: "Posso utilizar apenas o ciclo de secagem?",
@@ -127,13 +127,13 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-50 font-sans selection:bg-blue-500/30">
+    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-blue-500/30">
       {/* Navigation */}
-      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#020617]/80 backdrop-blur-md border-b border-white/5 py-4' : 'bg-transparent py-6'}`}>
+      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/80 backdrop-blur-md border-b border-slate-200 py-4' : 'bg-transparent py-6'}`}>
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
           <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-xl shadow-lg shadow-blue-600/20">2C</div>
-            <span className="text-xl font-bold tracking-tight hidden sm:block text-blue-500">Lavanderia</span>
+            <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-xl shadow-lg shadow-blue-600/20 text-white">2C</div>
+            <span className="text-xl font-bold tracking-tight hidden sm:block text-blue-600">Lavanderia</span>
           </div>
 
           <div className="hidden md:flex items-center gap-8">
@@ -141,7 +141,7 @@ export default function App() {
               <button 
                 key={item} 
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className="text-sm font-medium text-slate-400 hover:text-white transition-colors"
+                className={`text-sm font-medium transition-colors ${scrolled ? 'text-slate-600 hover:text-blue-600' : 'text-slate-700 hover:text-blue-600'}`}
               >
                 {item}
               </button>
@@ -208,16 +208,16 @@ export default function App() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-wider mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-xs font-bold uppercase tracking-wider mb-6">
               <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
               Tecnologia Profissional • Cuidado Especializado
             </div>
-            <h1 className="text-5xl md:text-7xl font-black tracking-tighter leading-[0.9] mb-8">
-              SUA ROUPA <span className="text-blue-500">LIMPA</span>,<br />
+            <h1 className="text-5xl md:text-7xl font-black tracking-tighter leading-[0.9] mb-8 text-slate-900">
+              SUA ROUPA <span className="text-blue-600">LIMPA</span>,<br />
               HIGIENIZADA E<br />
-              <span className="text-blue-500">PRESERVADA</span>.
+              <span className="text-blue-600">PRESERVADA</span>.
             </h1>
-            <p className="text-lg text-slate-400 max-w-lg mb-10 leading-relaxed">
+            <p className="text-lg text-slate-600 max-w-lg mb-10 leading-relaxed">
               Lavagem técnica especializada com esterilização UV e máquinas industriais de alta capacidade. O maior cesto da região para o seu conforto.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -244,7 +244,7 @@ export default function App() {
             className="relative"
           >
             <div className="absolute -inset-4 bg-blue-600/20 blur-2xl rounded-3xl" />
-            <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl aspect-square md:aspect-auto md:h-[500px]">
+            <div className="relative rounded-3xl overflow-hidden border border-slate-200 shadow-2xl aspect-square md:aspect-auto md:h-[500px]">
               <video 
                 autoPlay 
                 loop 
@@ -254,15 +254,15 @@ export default function App() {
               >
                 <source src={VIDEO_URL} type="video/mp4" />
               </video>
-              <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/60 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center shadow-lg">
                     <Zap size={24} className="text-white fill-white" />
                   </div>
                   <div>
-                    <p className="text-white font-bold">2 Clicks</p>
-                    <p className="text-white/60 text-sm">Lavanderia Especializada</p>
+                    <p className="text-white font-bold drop-shadow-md">2 Clicks</p>
+                    <p className="text-white/80 text-sm drop-shadow-md">Lavanderia Especializada</p>
                   </div>
                 </div>
               </div>
@@ -377,7 +377,7 @@ export default function App() {
                   </div>
                   <div>
                     <h4 className="text-xl font-bold text-white mb-2">Presente de Aniversário</h4>
-                    <p className="text-blue-100 leading-relaxed">No mês do seu aniversário, ganhe um ciclo de um sexto (lavar ou secar) totalmente gratuito.</p>
+                    <p className="text-blue-100 leading-relaxed">No mês do seu aniversário, ganhe um ciclo de um cesto (lavar ou secar) totalmente gratuito.</p>
                   </div>
                 </div>
               </div>
@@ -411,7 +411,7 @@ export default function App() {
               { icon: Clock, title: "24 Horas", desc: "Funcionamento ininterrupto para sua conveniência." },
               { icon: ShieldCheck, title: "Esterilização UV", desc: "Eliminação de 99.9% de bactérias e fungos." },
               { icon: Maximize2, title: "Maior Cesto", desc: "O maior cesto da região para grandes volumes." },
-              { icon: Zap, title: "Industrial", desc: "Máquinas de alta performance (Dois Sextos)." }
+              { icon: Zap, title: "Industrial", desc: "Máquinas de alta performance (Dois Cestos)." }
             ].map((feature, i) => (
               <motion.div 
                 key={i}
@@ -472,7 +472,7 @@ export default function App() {
               <div className="space-y-6">
                 {[
                   { step: "01", title: "Selecione o Serviço", desc: "Escolha entre Lavar ou Secar diretamente na tela." },
-                  { step: "02", title: "Escolha o Cesto", desc: "Selecione o tamanho ideal (Um ou Dois Sextos)." },
+                  { step: "02", title: "Escolha o Cesto", desc: "Selecione o tamanho ideal (Um ou Dois Cestos)." },
                   { step: "03", title: "Realize o Pagamento", desc: "Use seu cartão de débito, crédito ou pague via Pix." },
                   { step: "04", title: "Inicie a Máquina", desc: "A máquina será liberada automaticamente para uso." }
                 ].map((item, i) => (
@@ -503,14 +503,14 @@ export default function App() {
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {[
               { 
-                name: "Um Sexto", 
+                name: "Um Cesto", 
                 lavar: "16,00", 
                 secar: "16,00", 
                 desc: "Ideal para roupas do dia a dia e volumes moderados.",
                 popular: false
               },
               { 
-                name: "Dois Sextos", 
+                name: "Dois Cestos", 
                 lavar: "34,00", 
                 secar: "34,00", 
                 desc: "Capacidade industrial para grandes volumes e edredons.",
@@ -522,30 +522,30 @@ export default function App() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className={`relative p-10 rounded-[2.5rem] border ${plan.popular ? 'bg-blue-600 border-blue-500 shadow-2xl shadow-blue-600/20' : 'bg-white/5 border-white/10'}`}
+                className={`relative p-10 rounded-[2.5rem] border-2 ${plan.popular ? 'bg-white border-blue-500 shadow-2xl shadow-blue-600/10' : 'bg-white border-slate-100'}`}
               >
                 {plan.popular && (
-                  <div className="absolute top-0 right-10 -translate-y-1/2 bg-white text-blue-600 px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest shadow-lg">
+                  <div className="absolute top-0 right-10 -translate-y-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest shadow-lg">
                     Mais Potente
                   </div>
                 )}
-                <h3 className="text-2xl font-black mb-2">{plan.name}</h3>
-                <p className={`text-sm mb-8 ${plan.popular ? 'text-blue-100' : 'text-slate-400'}`}>{plan.desc}</p>
+                <h3 className="text-2xl font-black mb-2 text-slate-900">{plan.name}</h3>
+                <p className="text-sm mb-8 text-slate-500">{plan.desc}</p>
                 
                 <div className="space-y-4 mb-8">
                   <div className="flex justify-between items-center">
-                    <span className={plan.popular ? 'text-blue-100' : 'text-slate-400'}>Lavar</span>
-                    <span className="text-2xl font-black">R$ {plan.lavar}</span>
+                    <span className="text-slate-500">Lavar</span>
+                    <span className="text-2xl font-black text-slate-900">R$ {plan.lavar}</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className={plan.popular ? 'text-blue-100' : 'text-slate-400'}>Secar</span>
-                    <span className="text-2xl font-black">R$ {plan.secar}</span>
+                    <span className="text-slate-500">Secar</span>
+                    <span className="text-2xl font-black text-slate-900">R$ {plan.secar}</span>
                   </div>
                 </div>
 
                 <a 
                   href="https://wa.me/5511999999999"
-                  className={`w-full py-4 rounded-2xl font-bold flex items-center justify-center gap-2 transition-all ${plan.popular ? 'bg-white text-blue-600 hover:bg-slate-100' : 'bg-blue-600 text-white hover:bg-blue-500'}`}
+                  className="w-full py-4 rounded-2xl font-bold flex items-center justify-center gap-2 transition-all bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-600/20"
                 >
                   Começar agora
                   <ChevronRight size={18} />
