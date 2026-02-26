@@ -23,7 +23,14 @@ import {
   Quote,
   Plus,
   Minus,
-  ChevronDown
+  ChevronDown,
+  Footprints,
+  Box,
+  Smartphone,
+  ClipboardList,
+  Search,
+  PackageOpen,
+  Sparkles
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from 'react';
@@ -31,6 +38,7 @@ import { useState, useEffect } from 'react';
 const VIDEO_URL = "https://ophugihxmlphgcryuode.supabase.co/storage/v1/object/sign/inova7/2c%20lav%20hero%20video.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82NjhkNTkyYi05MDM0LTRjNjgtYmI3Ny03YzYzYTA2NTM0OTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbm92YTcvMmMgbGF2IGhlcm8gdmlkZW8ubXA0IiwiaWF0IjoxNzcyMTIwMjkyLCJleHAiOjE4MDM2NTYyOTJ9.qTOyylmOAlNrLD4no3joWZsW3EZPzL_chjxPV693DWc";
 const ESTRUTURA_VIDEO_URL = "https://ophugihxmlphgcryuode.supabase.co/storage/v1/object/sign/inova7/2c%20estrutrura%20video.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82NjhkNTkyYi05MDM0LTRjNjgtYmI3Ny03YzYzYTA2NTM0OTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbm92YTcvMmMgZXN0cnV0cnVyYSB2aWRlby5tcDQiLCJpYXQiOjE3NzIxMjE0NjMsImV4cCI6MTgwMzY1NzQ2M30.BkyQ9VERBxoEi3_dUJwErFgB6gdLjzbvf-9l3_IIoCo";
 const TOTEM_VIDEO_URL = "https://ophugihxmlphgcryuode.supabase.co/storage/v1/object/sign/inova7/2%20c%20maquina.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82NjhkNTkyYi05MDM0LTRjNjgtYmI3Ny03YzYzYTA2NTM0OTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbm92YTcvMiBjIG1hcXVpbmEubXA0IiwiaWF0IjoxNzcyMTIzNDU2LCJleHAiOjE4MDM2NTk0NTZ9.47-mlOZDSt2WycyCiSmdI5NGTkQgPiEyAIMFgr0m-2I";
+const SNEAKERS_VIDEO_URL = "https://ophugihxmlphgcryuode.supabase.co/storage/v1/object/sign/inova7/grok%20video%202%20click%20snakers.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82NjhkNTkyYi05MDM0LTRjNjgtYmI3Ny03YzYzYTA2NTM0OTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbm92YTcvZ3JvayB2aWRlbyAyIGNsaWNrIHNuYWtlcnMubXA0IiwiaWF0IjoxNzcyMTI2ODg2LCJleHAiOjE4MDM2NjI4ODZ9.eQmR89Usrcvf81T2cVT0CQ5oB2iS7UUzXTp99T59Y0w";
 
 const INSTAGRAM_IMAGES = [
   "https://ophugihxmlphgcryuode.supabase.co/storage/v1/object/sign/inova7/Captura%20de%20tela%202026-02-26%20130849.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82NjhkNTkyYi05MDM0LTRjNjgtYmI3Ny03YzYzYTA2NTM0OTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbm92YTcvQ2FwdHVyYSBkZSB0ZWxhIDIwMjYtMDItMjYgMTMwODQ5LnBuZyIsImlhdCI6MTc3MjEyMjIzMiwiZXhwIjoxODAzNjU4MjMyfQ.sSuKlVlyJ9f7ObNCArUM-NkboA_8T-lJUjj8BF0usws",
@@ -756,43 +764,144 @@ export default function App() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-20 border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-12 mb-16">
-            <div className="col-span-2">
-              <div className="flex items-center gap-2 mb-6">
-                <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-xl">2C</div>
-                <span className="text-xl font-bold tracking-tight">2 Clicks <span className="text-blue-500">Lavanderia</span></span>
+      {/* 2 Clicks Sneakers Section */}
+      <section id="sneakers" className="py-24 bg-blue-600 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+          <div className="absolute top-10 left-10 rotate-12"><Footprints size={120} /></div>
+          <div className="absolute bottom-10 right-10 -rotate-12"><Footprints size={120} /></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-6 relative">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/20 border border-white/30 text-white text-xs font-black uppercase tracking-widest mb-8">
+                <Sparkles size={14} />
+                Cuidado Especializado em Calçados
               </div>
-              <p className="text-slate-400 max-w-sm leading-relaxed">
-                A revolução do self-service em Mogi das Cruzes. Tecnologia industrial, praticidade e o melhor custo-benefício para suas roupas.
+              <h2 className="text-5xl md:text-6xl font-black tracking-tighter text-white leading-[0.9] mb-8">
+                2 CLICKS <br /><span className="text-blue-200">SNEAKERS</span>
+              </h2>
+              <p className="text-xl text-blue-50 font-medium mb-8 leading-relaxed">
+                Não é apenas uma lavagem, é um protocolo técnico de restauração. Unimos tecnologia industrial com finalização manual detalhada para preservar a vida útil do seu par.
               </p>
+
+              {/* Sneakers Video */}
+              <div className="relative rounded-[2rem] overflow-hidden border border-white/20 shadow-2xl mb-12 aspect-video">
+                <video 
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline 
+                  className="w-full h-full object-cover"
+                >
+                  <source src={SNEAKERS_VIDEO_URL} type="video/mp4" />
+                </video>
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-600/40 to-transparent pointer-events-none" />
+              </div>
+              
+              <div className="grid sm:grid-cols-3 gap-6 mb-12">
+                {[
+                  { icon: ShieldCheck, title: "Processo Controlado", desc: "Couro, camurça, knit e mesh." },
+                  { icon: Zap, title: "Esterilização UV", desc: "Elimina 99,9% de fungos e bactérias." },
+                  { icon: Maximize2, title: "Preservação", desc: "Foco na estrutura e durabilidade." }
+                ].map((item, i) => (
+                  <div key={i} className="p-6 rounded-3xl bg-white/10 border border-white/20">
+                    <item.icon className="text-white mb-4" size={24} />
+                    <h4 className="text-sm font-bold text-white mb-2">{item.title}</h4>
+                    <p className="text-blue-100 text-xs leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-wrap gap-4">
+                <a 
+                  href="https://2clickssneakers.com.br" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-white text-blue-600 px-8 py-4 rounded-2xl font-bold flex items-center gap-2 hover:bg-blue-50 transition-all shadow-xl shadow-black/10"
+                >
+                  Visitar site Sneakers
+                  <ChevronRight size={20} />
+                </a>
+                <a 
+                  href="https://wa.me/5511999999999" 
+                  className="bg-blue-800/40 text-white border border-white/20 px-8 py-4 rounded-2xl font-bold flex items-center gap-2 hover:bg-blue-800/60 transition-all"
+                >
+                  Falar com especialista
+                </a>
+              </div>
             </div>
-            <div>
-              <h5 className="font-bold mb-6">Links Rápidos</h5>
-              <ul className="space-y-4 text-sm text-slate-400">
-                <li><button onClick={() => scrollToSection('sobre')} className="hover:text-white transition-colors">Sobre nós</button></li>
-                <li><button onClick={() => scrollToSection('preços')} className="hover:text-white transition-colors">Preços</button></li>
-                <li><button onClick={() => scrollToSection('unidades')} className="hover:text-white transition-colors">Unidades</button></li>
-                <li><button onClick={() => scrollToSection('benefícios')} className="hover:text-white transition-colors">Benefícios</button></li>
-              </ul>
-            </div>
-            <div>
-              <h5 className="font-bold mb-6">Contato</h5>
-              <ul className="space-y-4 text-sm text-slate-400">
-                <li className="flex items-center gap-2"><MessageCircle size={16} /> (11) 99999-9999</li>
-                <li className="flex items-center gap-2"><Clock size={16} /> Aberto 24 Horas</li>
-              </ul>
+
+            <div className="space-y-8">
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 p-10 rounded-[3rem]">
+                <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
+                  <Box className="text-blue-200" />
+                  Sistema de Armários (Lockers)
+                </h3>
+                <div className="space-y-6">
+                  {[
+                    { icon: MapPin, title: "Deixe o tênis", desc: "Vá até uma unidade, use um armário e deposite a chave." },
+                    { icon: Smartphone, title: "Avise no WhatsApp", desc: "Informe o número da porta utilizada." },
+                    { icon: ClipboardList, title: "Cadastro e Triagem", desc: "Link para cadastro e análise técnica da equipe." },
+                    { icon: PackageOpen, title: "Retirada", desc: "Avisamos assim que seu par estiver pronto." }
+                  ].map((step, i) => (
+                    <div key={i} className="flex gap-4">
+                      <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center shrink-0 text-white">
+                        <step.icon size={20} />
+                      </div>
+                      <div>
+                        <h5 className="font-bold text-white text-sm">{step.title}</h5>
+                        <p className="text-blue-100 text-xs leading-relaxed">{step.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 p-10 rounded-[3rem]">
+                <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
+                  <MapPin className="text-blue-200" />
+                  Onde encontrar (Unidades em Mogi)
+                </h3>
+                <div className="space-y-4">
+                  <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+                    <p className="text-xs font-bold text-blue-200 uppercase tracking-widest mb-1">Mogi Moderno</p>
+                    <p className="text-sm text-white">Rua Dr. Deodato Wertheimer, 2220</p>
+                  </div>
+                  <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+                    <p className="text-xs font-bold text-blue-200 uppercase tracking-widest mb-1">Alto do Ipiranga</p>
+                    <p className="text-sm text-white">Av. Japão, 1941</p>
+                  </div>
+                  <p className="text-xs text-blue-100 italic mt-4">*(Os armários ficam dentro da 2 Clicks Lavanderia)*</p>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500 font-medium uppercase tracking-widest">
-            <p>© 2024 2 Clicks Lavanderia Self Service. Todos os direitos reservados.</p>
-            <div className="flex gap-8">
-              <a href="#" className="hover:text-white transition-colors">Privacidade</a>
-              <a href="#" className="hover:text-white transition-colors">Termos</a>
-            </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-12 border-t border-white/5 bg-black">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="flex items-center gap-2">
+            <span className="text-xl font-black tracking-tighter">2 CLICKS <span className="text-blue-500 uppercase">Lavanderia</span></span>
           </div>
+
+          <div className="flex items-center gap-6 text-slate-400">
+            <a href="https://instagram.com/2clickslavanderia" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+              <Instagram size={24} />
+            </a>
+            <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+              <MessageCircle size={24} />
+            </a>
+            <button onClick={() => scrollToSection('unidades')} className="hover:text-white transition-colors">
+              <MapPin size={24} />
+            </button>
+          </div>
+
+          <p className="text-sm text-slate-500 font-medium">
+            © 2026 2 Clicks Lavanderia. Todos os direitos reservados.
+          </p>
         </div>
       </footer>
 
