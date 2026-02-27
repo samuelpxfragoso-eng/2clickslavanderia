@@ -423,7 +423,7 @@ export default function App() {
               { 
                 icon: Coins, 
                 title: "Cashback", 
-                desc: "A cada R$ 160,00 gastos no mês, você recebe automaticamente R$ 16,00 de crédito para usar no próximo mês." 
+                desc: "Quem escolhe a 2 Clicks regularmente aproveita benefícios especiais de forma automática. Porque fidelidade merece retorno." 
               },
               { 
                 icon: Gift, 
@@ -618,21 +618,17 @@ export default function App() {
                 </li>
                 <li className="flex items-start gap-3 text-sm text-slate-600">
                   <CheckCircle2 size={18} className="text-emerald-500 shrink-0 mt-0.5" />
-                  Utilize o cesto auxiliar como medidor.
-                </li>
-                <li className="flex items-start gap-3 text-sm text-slate-600">
-                  <CheckCircle2 size={18} className="text-emerald-500 shrink-0 mt-0.5" />
-                  Centrifugue 2x peças lavadas em máquinas domésticas.
+                  Meça as peças sempre soltas, sem compactar no cesto e ultrapassar a borda.
                 </li>
               </ul>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3 text-sm text-slate-600">
                   <X size={18} className="text-red-500 shrink-0 mt-0.5" />
-                  Proibido lavar tapetes pesados ou peças com areia.
+                  Proibido lavar ou secar tapetes, travesseiro, panos de chão, sapatos, roupas com graxa, areia ou excesso de pelos.
                 </li>
                 <li className="flex items-start gap-3 text-sm text-slate-600">
                   <X size={18} className="text-red-500 shrink-0 mt-0.5" />
-                  Proibido peças com resíduos químicos ou graxa.
+                  Proibido adicionar produtos em pó em nossos equipamentos.
                 </li>
                 <li className="flex items-start gap-3 text-sm text-slate-600">
                   <X size={18} className="text-red-500 shrink-0 mt-0.5" />
@@ -714,7 +710,9 @@ export default function App() {
               { q: "Quanto tempo demora?", a: "Em média 1 hora entre lavagem e secagem. A lavagem dura aprox. 35min e a secagem 45min." },
               { q: "Tem estacionamento?", a: "Sim! Oferecemos estacionamento exclusivo para nossos clientes em nossas unidades." },
               { q: "Como funciona o cashback?", a: "É o nosso programa de fidelidade: a cada R$ 160,00 gastos no mês, você recebe automaticamente R$ 16,00 de crédito para usar no próximo mês." },
-              { q: "Posso vir apenas para secar minhas roupas?", a: "Sim! Você pode trazer suas roupas já lavadas de casa. Para garantir a eficiência da secagem e evitar ciclos extras, recomendamos que as peças tenham sido centrifugadas duas vezes em sua máquina doméstica antes de serem colocadas em nossas secadoras profissionais." }
+              { q: "Posso usar apenas para secar?", a: "Pode trazer somente para secar, sim! Porém, recomendamos que as peças sejam centrifugadas duas vezes quando lavadas em máquinas domésticas, para garantir melhor desempenho na secagem. Utilize o cesto auxiliar de roupas limpas como referência para medir a capacidade ideal da secadora. É fundamental que as roupas estejam bem centrifugadas e dentro da capacidade indicada, para que o ciclo de 45 minutos seja suficiente para uma secagem eficiente." },
+              { q: "A máquina já finalizou, mas ainda tem roupas dentro. Posso retirar para usar?", a: "Sim. Conforme nossas condições de uso, se o ciclo já foi finalizado e o responsável pelas roupas não estiver presente, você pode retirar as peças para utilizar a máquina. Pedimos apenas que utilize os cestos auxiliares de roupas limpas para acomodá-las e deixe-as organizadas embaixo da mesa de apoio. Assim mantemos o fluxo da lavanderia funcionando e garantimos respeito entre todos os clientes." },
+              { q: "Posso sair enquanto a máquina funciona?", a: "Sim. O ambiente é monitorado 24h por câmeras de segurança, garantindo tranquilidade enquanto suas roupas são cuidadas." }
             ].map((faq, i) => (
               <div 
                 key={i}
@@ -790,23 +788,36 @@ export default function App() {
                       <p className="text-slate-500 text-xs">{loc.desc}</p>
                     </div>
                   </div>
-                  <div className="flex gap-4">
-                    <a 
-                      href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(loc.address)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-900 py-3 rounded-xl text-sm font-bold text-center transition-all"
-                    >
-                      Como Chegar
-                    </a>
-                    <a 
-                      href="https://wa.me/message/4LRPJ3HSDEXXB1"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 bg-blue-600 hover:bg-blue-500 text-white py-3 rounded-xl text-sm font-bold text-center transition-all"
-                    >
-                      Falar no WhatsApp
-                    </a>
+                  <div className="flex flex-col gap-3">
+                    <div className="flex gap-4">
+                      <a 
+                        href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(loc.address)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-900 py-3 rounded-xl text-sm font-bold text-center transition-all"
+                      >
+                        Como Chegar
+                      </a>
+                      <a 
+                        href="https://wa.me/message/4LRPJ3HSDEXXB1"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 bg-blue-600 hover:bg-blue-500 text-white py-3 rounded-xl text-sm font-bold text-center transition-all"
+                      >
+                        WhatsApp
+                      </a>
+                    </div>
+                    {loc.name.includes("Moderno") && (
+                      <a 
+                        href="https://g.page/r/Cew9iD9yhuUdEBM/review"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full bg-yellow-50 hover:bg-yellow-100 text-yellow-700 py-3 rounded-xl text-sm font-bold text-center transition-all flex items-center justify-center gap-2 border border-yellow-200"
+                      >
+                        <Star size={16} fill="currentColor" />
+                        Avaliar Unidade no Google
+                      </a>
+                    )}
                   </div>
                 </div>
                 <div className="rounded-3xl overflow-hidden border border-slate-200 h-64 shadow-xl">
@@ -836,7 +847,7 @@ export default function App() {
             <p className="text-slate-600 max-w-lg">A 2 Clicks é reconhecida pelos clientes pela praticidade, limpeza do ambiente e qualidade das máquinas.</p>
           </div>
           <a 
-            href="https://wa.me/message/4LRPJ3HSDEXXB1" 
+            href="https://g.page/r/Cew9iD9yhuUdEBM/review" 
             target="_blank" 
             rel="noopener noreferrer"
             className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-2xl font-bold flex items-center gap-2 transition-all shadow-xl shadow-blue-600/20 shrink-0"
