@@ -129,36 +129,35 @@ export default function App() {
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-blue-500/30">
       {/* Navigation */}
-      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/80 backdrop-blur-md border-b border-slate-200 py-4' : 'bg-transparent py-6'}`}>
+      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md border-b border-slate-200 py-4' : 'bg-transparent py-6'}`}>
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
           <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-xl shadow-lg shadow-blue-600/20 text-white">2C</div>
-            <span className="text-xl font-bold tracking-tight hidden sm:block text-blue-600">Lavanderia</span>
+            <span className="text-xl font-bold tracking-tight hidden sm:block text-blue-600">2 Clicks</span>
           </div>
 
           <div className="hidden md:flex items-center gap-8">
-            {['Sobre', 'Preços', 'Unidades', 'Benefícios'].map((item) => (
+            {['Sobre', 'Como Funciona', 'Benefícios', 'Preços', 'Unidades'].map((item) => (
               <button 
                 key={item} 
-                onClick={() => scrollToSection(item.toLowerCase())}
-                className={`text-sm font-medium transition-colors ${scrolled ? 'text-slate-600 hover:text-blue-600' : 'text-slate-700 hover:text-blue-600'}`}
+                onClick={() => scrollToSection(item.toLowerCase().replace(' ', '-'))}
+                className="text-sm font-bold text-slate-600 hover:text-blue-600 transition-colors"
               >
                 {item}
               </button>
             ))}
             <a 
-              href="https://wa.me/5511999999999" 
+              href="https://wa.me/message/4LRPJ3HSDEXXB1" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2.5 rounded-full text-sm font-semibold flex items-center gap-2 transition-all shadow-lg shadow-blue-600/20"
+              className="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2.5 rounded-full text-sm font-bold flex items-center gap-2 transition-all shadow-lg shadow-blue-600/20"
             >
               <MessageCircle size={18} />
               WhatsApp
-              <ChevronRight size={16} />
             </a>
           </div>
 
-          <button className="md:hidden text-slate-400" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <button className="md:hidden text-slate-600" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
@@ -171,20 +170,20 @@ export default function App() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-[#020617] pt-24 px-6 md:hidden"
+            className="fixed inset-0 z-40 bg-white pt-24 px-6 md:hidden"
           >
             <div className="flex flex-col gap-6">
-              {['Sobre', 'Preços', 'Unidades', 'Benefícios'].map((item) => (
+              {['Sobre', 'Como Funciona', 'Benefícios', 'Preços', 'Unidades'].map((item) => (
                 <button 
                   key={item} 
-                  onClick={() => scrollToSection(item.toLowerCase())}
-                  className="text-2xl font-semibold text-slate-300 text-left"
+                  onClick={() => scrollToSection(item.toLowerCase().replace(' ', '-'))}
+                  className="text-2xl font-bold text-slate-900 text-left"
                 >
                   {item}
                 </button>
               ))}
               <a 
-                href="https://wa.me/5511999999999" 
+                href="https://wa.me/message/4LRPJ3HSDEXXB1" 
                 className="bg-blue-600 text-white p-4 rounded-2xl text-center font-bold text-lg flex items-center justify-center gap-2"
               >
                 <MessageCircle size={20} />
@@ -196,10 +195,10 @@ export default function App() {
       </AnimatePresence>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-slate-50">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none">
-          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600/10 blur-[120px] rounded-full" />
-          <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-900/10 blur-[120px] rounded-full" />
+          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600/5 blur-[120px] rounded-full" />
+          <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-400/5 blur-[120px] rounded-full" />
         </div>
 
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
@@ -210,29 +209,33 @@ export default function App() {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-xs font-bold uppercase tracking-wider mb-6">
               <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-              Tecnologia Profissional • Cuidado Especializado
+              Referência em Mogi das Cruzes
             </div>
-            <h1 className="text-5xl md:text-7xl font-black tracking-tighter leading-[0.9] mb-8 text-slate-900">
-              SUA ROUPA <span className="text-blue-600">LIMPA</span>,<br />
-              HIGIENIZADA E<br />
-              <span className="text-blue-600">PRESERVADA</span>.
+            <h1 className="text-4xl md:text-6xl font-black tracking-tighter leading-[1.1] mb-8 text-slate-900">
+              Lavanderia Self-Service em Mogi das Cruzes – <span className="text-blue-600">Rápida, Moderna e com Benefícios Exclusivos</span>
             </h1>
             <p className="text-lg text-slate-600 max-w-lg mb-10 leading-relaxed">
-              Lavagem técnica especializada com esterilização UV e máquinas industriais de alta capacidade. O maior cesto da região para o seu conforto.
+              Na 2 Clicks Lavanderia você lava e seca suas roupas em aproximadamente 1 hora, com máquinas profissionais, esterilização UV, estacionamento exclusivo e vantagens para clientes cadastrados.
             </p>
             <div className="flex flex-wrap gap-4">
-              <a 
-                href="https://wa.me/5511999999999" 
+              <button 
+                onClick={() => scrollToSection('unidades')}
                 className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-2xl font-bold flex items-center gap-2 transition-all shadow-xl shadow-blue-600/20 group"
               >
-                Agendar pelo WhatsApp
+                Ver Unidades
                 <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
-              </a>
+              </button>
               <button 
-                onClick={() => scrollToSection('preços')}
-                className="bg-white/5 hover:bg-white/10 border border-white/10 text-white px-8 py-4 rounded-2xl font-bold transition-all"
+                onClick={() => scrollToSection('como-funciona')}
+                className="bg-white hover:bg-slate-50 border border-slate-200 text-slate-900 px-8 py-4 rounded-2xl font-bold transition-all shadow-sm"
               >
-                Ver preços
+                Como Funciona
+              </button>
+              <button 
+                onClick={() => scrollToSection('benefícios')}
+                className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 text-white px-8 py-4 rounded-2xl font-bold transition-all shadow-lg shadow-emerald-600/10"
+              >
+                Quero Ganhar Benefícios
               </button>
             </div>
           </motion.div>
@@ -243,8 +246,8 @@ export default function App() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="absolute -inset-4 bg-blue-600/20 blur-2xl rounded-3xl" />
-            <div className="relative rounded-3xl overflow-hidden border border-slate-200 shadow-2xl aspect-square md:aspect-auto md:h-[500px]">
+            <div className="absolute -inset-4 bg-blue-600/10 blur-2xl rounded-3xl" />
+            <div className="relative rounded-[2.5rem] overflow-hidden border border-slate-200 shadow-2xl aspect-square md:aspect-auto md:h-[550px]">
               <video 
                 autoPlay 
                 loop 
@@ -254,15 +257,17 @@ export default function App() {
               >
                 <source src={VIDEO_URL} type="video/mp4" />
               </video>
-              <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center shadow-lg">
-                    <Zap size={24} className="text-white fill-white" />
-                  </div>
-                  <div>
-                    <p className="text-white font-bold drop-shadow-md">2 Clicks</p>
-                    <p className="text-white/80 text-sm drop-shadow-md">Lavanderia Especializada</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-white/40 to-transparent" />
+              <div className="absolute bottom-8 left-8 right-8">
+                <div className="bg-white/80 backdrop-blur-md p-6 rounded-3xl border border-white/20 shadow-xl">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-2xl bg-blue-600 flex items-center justify-center shadow-lg">
+                      <Zap size={24} className="text-white fill-white" />
+                    </div>
+                    <div>
+                      <p className="text-slate-900 font-black">2 Clicks Lavanderia</p>
+                      <p className="text-slate-600 text-sm font-medium">Sua roupa pronta em 1 hora</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -271,60 +276,39 @@ export default function App() {
         </div>
       </section>
 
-      {/* Estrutura Section */}
-      <section id="estrutura" className="py-24 relative overflow-hidden">
+      {/* Sobre a 2 Clicks Section */}
+      <section id="sobre" className="py-24 relative overflow-hidden bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <motion.div 
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="order-2 md:order-1"
             >
-              <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-8">
-                ESTRUTURA DE <span className="text-blue-500">PONTA</span>
-              </h2>
-              <p className="text-xl text-slate-300 font-semibold mb-6">
-                Tecnologia industrial para o cuidado das suas roupas.
-              </p>
-              <p className="text-slate-400 leading-relaxed mb-8">
-                A 2 Clicks Lavanderia foi projetada para oferecer a melhor experiência de lavagem self-service. Nossa estrutura conta com máquinas industriais de última geração, sistema de esterilização UV e um ambiente confortável e seguro 24 horas por dia. Utilizamos produtos de alta qualidade que garantem a limpeza profunda sem agredir as fibras dos tecidos.
-              </p>
-              <div className="grid grid-cols-2 gap-6">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-blue-600/10 flex items-center justify-center">
-                    <CheckCircle2 className="text-blue-500" size={20} />
-                  </div>
-                  <span className="text-sm font-bold">Máquinas Pro</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-blue-600/10 flex items-center justify-center">
-                    <CheckCircle2 className="text-blue-500" size={20} />
-                  </div>
-                  <span className="text-sm font-bold">Ambiente 24h</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-blue-600/10 flex items-center justify-center">
-                    <CheckCircle2 className="text-blue-500" size={20} />
-                  </div>
-                  <span className="text-sm font-bold">Produtos Premium</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-blue-600/10 flex items-center justify-center">
-                    <CheckCircle2 className="text-blue-500" size={20} />
-                  </div>
-                  <span className="text-sm font-bold">Segurança Total</span>
-                </div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-xs font-bold uppercase tracking-wider mb-6">
+                Sobre a 2 Clicks
               </div>
+              <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-8 text-slate-900">
+                DEVOLVENDO <span className="text-blue-600">TEMPO</span> PARA VOCÊ
+              </h2>
+              <p className="text-lg text-slate-600 leading-relaxed mb-6">
+                A 2 Clicks Lavanderia nasceu com um propósito simples: devolver tempo para as pessoas.
+              </p>
+              <p className="text-slate-600 leading-relaxed mb-8">
+                Somos referência em lavanderia self-service em Mogi das Cruzes, oferecendo uma estrutura moderna, ambiente seguro e equipamentos de alta performance que garantem mais eficiência e cuidado com suas roupas.
+              </p>
+              <p className="text-slate-600 leading-relaxed font-medium">
+                Aqui você encontra praticidade, economia, autonomia e tecnologia para resolver tudo em cerca de 1 hora — sem burocracia e sem esperar dias para retirar suas peças.
+              </p>
             </motion.div>
 
             <motion.div 
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="relative order-1 md:order-2"
+              className="relative"
             >
-              <div className="relative rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl aspect-video md:aspect-[4/5]">
+              <div className="relative rounded-[2.5rem] overflow-hidden border border-slate-200 shadow-2xl aspect-video md:aspect-[4/5]">
                 <video 
                   autoPlay 
                   loop 
@@ -334,115 +318,202 @@ export default function App() {
                 >
                   <source src={ESTRUTURA_VIDEO_URL} type="video/mp4" />
                 </video>
-                
-                {/* Sound Toggle Button */}
                 <button 
                   onClick={() => setIsMuted(!isMuted)}
-                  className="absolute bottom-6 right-6 w-12 h-12 rounded-full bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-black/60 transition-all z-10"
+                  className="absolute bottom-6 right-6 w-12 h-12 rounded-full bg-white/80 backdrop-blur-md border border-slate-200 flex items-center justify-center text-slate-900 hover:bg-white transition-all z-10"
                 >
                   {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
                 </button>
-
-                <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/40 to-transparent pointer-events-none" />
               </div>
-              
-              {/* Decorative elements */}
-              <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-blue-600/20 blur-2xl rounded-full" />
-              <div className="absolute -top-6 -right-6 w-32 h-32 bg-blue-500/10 blur-3xl rounded-full" />
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section id="benefícios" className="py-24 bg-blue-600 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 blur-[100px] rounded-full -translate-y-1/2 translate-x-1/2" />
-        <div className="max-w-7xl mx-auto px-6 relative">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white mb-8">VANTAGENS <br />EXCLUSIVAS</h2>
-              <div className="space-y-8">
-                <div className="flex gap-6">
-                  <div className="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center shrink-0">
-                    <Coins size={32} className="text-white" />
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-bold text-white mb-2">10% de Cashback</h4>
-                    <p className="text-blue-100 leading-relaxed">A cada R$ 160,00 em gastos, você recebe R$ 16,00 de volta para usar em uma lavagem extra.</p>
-                  </div>
-                </div>
-                <div className="flex gap-6">
-                  <div className="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center shrink-0">
-                    <Gift size={32} className="text-white" />
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-bold text-white mb-2">Presente de Aniversário</h4>
-                    <p className="text-blue-100 leading-relaxed">No mês do seu aniversário, ganhe um ciclo de um cesto (lavar ou secar) totalmente gratuito.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 p-10 rounded-[3rem]">
-              <h3 className="text-2xl font-bold text-white mb-6">Instruções de Uso</h3>
-              <ul className="space-y-6">
-                {[
-                  "Não apertar as peças no cesto.",
-                  "Respeitar o limite de capacidade do cesto.",
-                  "Utilizar um cesto por máquina."
-                ].map((text, i) => (
-                  <li key={i} className="flex items-start gap-4">
-                    <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center shrink-0 mt-1">
-                      <CheckCircle2 size={16} className="text-blue-600" />
-                    </div>
-                    <span className="text-white font-medium">{text}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Grid */}
-      <section id="sobre" className="py-24 bg-slate-900/30">
+      {/* Diferenciais Section */}
+      <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-slate-900">NOSSOS <span className="text-blue-600">DIFERENCIAIS</span></h2>
+            <p className="text-slate-600">Na 2 Clicks você tem eficiência, segurança e comodidade no mesmo lugar.</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { icon: Clock, title: "24 Horas", desc: "Funcionamento ininterrupto para sua conveniência." },
-              { icon: ShieldCheck, title: "Esterilização UV", desc: "Eliminação de 99.9% de bactérias e fungos." },
-              { icon: Maximize2, title: "Maior Cesto", desc: "O maior cesto da região para grandes volumes." },
-              { icon: Zap, title: "Industrial", desc: "Máquinas de alta performance (Dois Cestos)." }
-            ].map((feature, i) => (
+              { icon: Zap, title: "Alta Performance", desc: "Máquinas industriais de última geração." },
+              { icon: ShieldCheck, title: "Esterilização UV", desc: "Máxima higiene em todas as lavagens." },
+              { icon: MapPin, title: "Estacionamento", desc: "Vagas exclusivas para nossos clientes." },
+              { icon: Clock, title: "Ambiente 24h", desc: "Monitorado e seguro a qualquer hora." },
+              { icon: Maximize2, title: "Conforto", desc: "Estrutura organizada e climatizada." },
+              { icon: CheckCircle2, title: "Intuitivo", desc: "Processo rápido e sem burocracia." }
+            ].map((item, i) => (
               <motion.div 
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="p-8 rounded-3xl bg-white/5 border border-white/5 hover:border-blue-500/30 transition-all group"
+                className="p-8 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-all group"
               >
-                <div className="w-14 h-14 rounded-2xl bg-blue-600/10 flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
-                  <feature.icon size={28} className="text-blue-500 group-hover:text-white transition-colors" />
+                <div className="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
+                  <item.icon size={28} className="text-blue-600 group-hover:text-white transition-colors" />
                 </div>
-                <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed">{feature.desc}</p>
+                <h3 className="text-xl font-bold mb-3 text-slate-900">{item.title}</h3>
+                <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Totem Usage Section */}
-      <section id="como-usar" className="py-24 bg-slate-900/30">
+      {/* Economia e Sustentabilidade Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="bg-blue-600 rounded-[3rem] p-10 md:p-20 text-white relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 blur-[100px] rounded-full -translate-y-1/2 translate-x-1/2" />
+            <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-white text-xs font-bold uppercase tracking-wider mb-6">
+                  🌱 Economia e Sustentabilidade
+                </div>
+                <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-8">
+                  TECNOLOGIA QUE ECONOMIZA ÁGUA, ENERGIA E O SEU DINHEIRO.
+                </h2>
+                <p className="text-xl text-blue-50 leading-relaxed mb-8">
+                  As máquinas profissionais da 2 Clicks Lavanderia utilizam ciclos otimizados que reduzem o consumo de água e energia quando comparados a lavagens domésticas tradicionais.
+                </p>
+                <p className="text-blue-100 leading-relaxed">
+                  Ao escolher a lavanderia self-service, você contribui para um uso mais inteligente de recursos naturais, além de reduzir o desgaste da sua máquina de casa. Mais eficiência. Menos desperdício. Mais economia para você e para o planeta.
+                </p>
+              </div>
+              <div className="space-y-8">
+                <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border border-white/20 aspect-video md:aspect-square">
+                  <img 
+                    src="https://ophugihxmlphgcryuode.supabase.co/storage/v1/object/sign/inova7/2c%20eco.jpeg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82NjhkNTkyYi05MDM0LTRjNjgtYmI3Ny03YzYzYTA2NTM0OTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbm92YTcvMmMgZWNvLmpwZWciLCJpYXQiOjE3NzIyMjYxNDIsImV4cCI6MTg2NjgzNDE0Mn0.GlpKEQgtx5GsCUvavCLjHcj6T444OQog2IqrV7kIUWI" 
+                    alt="Economia e Sustentabilidade 2 Clicks" 
+                    className="w-full h-full object-cover"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 to-transparent pointer-events-none" />
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 text-center">
+                    <div className="text-3xl font-black mb-1">-40%</div>
+                    <div className="text-[10px] font-bold uppercase tracking-widest text-blue-200">Consumo de Água</div>
+                  </div>
+                  <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 text-center">
+                    <div className="text-3xl font-black mb-1">-30%</div>
+                    <div className="text-[10px] font-bold uppercase tracking-widest text-blue-200">Energia Elétrica</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Clube de Benefícios Section */}
+      <section id="benefícios" className="py-24 bg-slate-50 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 relative">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-slate-900">CLUBE DE <span className="text-blue-600">BENEFÍCIOS</span></h2>
+            <p className="text-slate-600">Aqui você lava e ainda ganha. Vantagens exclusivas para nossos clientes.</p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { 
+                icon: Coins, 
+                title: "Cashback", 
+                desc: "A cada R$ 160,00 gastos no mês, você recebe automaticamente R$ 16,00 de crédito para usar no próximo mês." 
+              },
+              { 
+                icon: Gift, 
+                title: "Aniversariantes", 
+                desc: "No mês do seu aniversário, você recebe um benefício exclusivo para comemorar com roupa limpa e renovada." 
+              },
+              { 
+                icon: Sparkles, 
+                title: "Cupons", 
+                desc: "Clientes cadastrados recebem promoções e condições especiais ao longo do ano via WhatsApp." 
+              },
+              { 
+                icon: Star, 
+                title: "Promoções", 
+                desc: "Campanhas especiais divulgadas em nossas redes sociais e unidades." 
+              }
+            ].map((item, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="p-8 rounded-[2rem] bg-white border border-slate-100 shadow-sm hover:shadow-md transition-all"
+              >
+                <div className="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center mb-6">
+                  <item.icon size={28} className="text-blue-600" />
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-slate-900">{item.title}</h3>
+                <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+          <div className="mt-12 text-center">
+            <a 
+              href="https://wa.me/message/4LRPJ3HSDEXXB1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-8 py-4 rounded-2xl font-bold transition-all shadow-lg shadow-emerald-600/10"
+            >
+              Quero me cadastrar agora
+              <ChevronRight size={20} />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Como Funciona Section */}
+      <section id="como-funciona" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-8 text-slate-900">
+                COMO <span className="text-blue-600">FUNCIONA</span>
+              </h2>
+              <p className="text-lg text-slate-600 leading-relaxed mb-10">
+                Lavar suas roupas na 2 Clicks é simples, rápido e intuitivo. Você resolve tudo no seu tempo, sem burocracia.
+              </p>
+              
+              <div className="space-y-8">
+                {[
+                  { step: "1", title: "Traga suas roupas", desc: "Não precisa agendar. Venha quando for melhor para você." },
+                  { step: "2", title: "Escolha a máquina", desc: "Selecione a máquina ideal para o volume de roupas (Um ou Dois Cestos)." },
+                  { step: "3", title: "Pague no Totem", desc: "Realize o pagamento diretamente no painel via Cartão ou Pix." },
+                  { step: "4", title: "Lave e Seque", desc: "Em aproximadamente 1 hora suas roupas estarão limpas e secas." }
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-6 items-start">
+                    <div className="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-black shrink-0">
+                      {item.step}
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold mb-1 text-slate-900">{item.title}</h4>
+                      <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="relative rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl aspect-video md:aspect-square">
+              <div className="relative rounded-[2.5rem] overflow-hidden border border-slate-200 shadow-2xl aspect-square">
                 <video 
                   autoPlay 
                   loop 
@@ -452,40 +523,10 @@ export default function App() {
                 >
                   <source src={TOTEM_VIDEO_URL} type="video/mp4" />
                 </video>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/40 to-transparent pointer-events-none" />
-              </div>
-              <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-blue-600/20 blur-2xl rounded-full" />
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-8">
-                COMO USAR O <span className="text-blue-500">TOTEM</span>
-              </h2>
-              <p className="text-slate-400 leading-relaxed mb-10">
-                Pagar e lavar nunca foi tão fácil. Nosso totem de autoatendimento é intuitivo e aceita as principais formas de pagamento. Siga os passos abaixo:
-              </p>
-              
-              <div className="space-y-6">
-                {[
-                  { step: "01", title: "Selecione o Serviço", desc: "Escolha entre Lavar ou Secar diretamente na tela." },
-                  { step: "02", title: "Escolha o Cesto", desc: "Selecione o tamanho ideal (Um ou Dois Cestos)." },
-                  { step: "03", title: "Realize o Pagamento", desc: "Use seu cartão de débito, crédito ou pague via Pix." },
-                  { step: "04", title: "Inicie a Máquina", desc: "A máquina será liberada automaticamente para uso." }
-                ].map((item, i) => (
-                  <div key={i} className="flex gap-6 group">
-                    <div className="text-3xl font-black text-blue-500/30 group-hover:text-blue-500 transition-colors shrink-0">
-                      {item.step}
-                    </div>
-                    <div>
-                      <h4 className="text-xl font-bold mb-1">{item.title}</h4>
-                      <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
+                <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent pointer-events-none" />
+                <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md p-6 rounded-3xl border border-white/20 shadow-xl">
+                  <p className="text-slate-900 font-bold text-center">Passo a passo no Totem</p>
+                </div>
               </div>
             </motion.div>
           </div>
@@ -493,11 +534,11 @@ export default function App() {
       </section>
 
       {/* Pricing Section */}
-      <section id="preços" className="py-24">
+      <section id="preços" className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4">NOSSOS <span className="text-blue-500">CICLOS</span></h2>
-            <p className="text-slate-400">Escolha a capacidade ideal para sua necessidade.</p>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-slate-900">NOSSOS <span className="text-blue-600">CICLOS</span></h2>
+            <p className="text-slate-600">Escolha a capacidade ideal para sua necessidade. Sabão e amaciante inclusos.</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -506,6 +547,8 @@ export default function App() {
                 name: "Um Cesto", 
                 lavar: "16,00", 
                 secar: "16,00", 
+                lavarTime: "35 min",
+                secarTime: "45 min",
                 desc: "Ideal para roupas do dia a dia e volumes moderados.",
                 popular: false
               },
@@ -513,6 +556,8 @@ export default function App() {
                 name: "Dois Cestos", 
                 lavar: "34,00", 
                 secar: "34,00", 
+                lavarTime: "35 min",
+                secarTime: "45 min",
                 desc: "Capacidade industrial para grandes volumes e edredons.",
                 popular: true
               }
@@ -522,7 +567,7 @@ export default function App() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className={`relative p-10 rounded-[2.5rem] border-2 ${plan.popular ? 'bg-white border-blue-500 shadow-2xl shadow-blue-600/10' : 'bg-white border-slate-100'}`}
+                className={`relative p-10 rounded-[2.5rem] border-2 bg-white ${plan.popular ? 'border-blue-500 shadow-2xl shadow-blue-600/10' : 'border-slate-100 shadow-sm'}`}
               >
                 {plan.popular && (
                   <div className="absolute top-0 right-10 -translate-y-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest shadow-lg">
@@ -532,26 +577,71 @@ export default function App() {
                 <h3 className="text-2xl font-black mb-2 text-slate-900">{plan.name}</h3>
                 <p className="text-sm mb-8 text-slate-500">{plan.desc}</p>
                 
-                <div className="space-y-4 mb-8">
-                  <div className="flex justify-between items-center">
-                    <span className="text-slate-500">Lavar</span>
-                    <span className="text-2xl font-black text-slate-900">R$ {plan.lavar}</span>
+                <div className="space-y-6 mb-10">
+                  <div className="flex justify-between items-center p-4 bg-slate-50 rounded-2xl">
+                    <div>
+                      <span className="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Lavar (~{plan.lavarTime})</span>
+                      <span className="text-2xl font-black text-slate-900">R$ {plan.lavar}</span>
+                    </div>
+                    <CheckCircle2 className="text-blue-500" size={24} />
                   </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-slate-500">Secar</span>
-                    <span className="text-2xl font-black text-slate-900">R$ {plan.secar}</span>
+                  <div className="flex justify-between items-center p-4 bg-slate-50 rounded-2xl">
+                    <div>
+                      <span className="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Secar (~{plan.secarTime})</span>
+                      <span className="text-2xl font-black text-slate-900">R$ {plan.secar}</span>
+                    </div>
+                    <CheckCircle2 className="text-blue-500" size={24} />
                   </div>
                 </div>
 
                 <a 
-                  href="https://wa.me/5511999999999"
+                  href="https://wa.me/message/4LRPJ3HSDEXXB1"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-full py-4 rounded-2xl font-bold flex items-center justify-center gap-2 transition-all bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-600/20"
                 >
-                  Começar agora
+                  Quero Ganhar Benefícios
                   <ChevronRight size={18} />
                 </a>
               </motion.div>
             ))}
+          </div>
+          
+          <div className="mt-16 bg-white border border-slate-100 p-8 rounded-[2.5rem] max-w-4xl mx-auto shadow-sm">
+            <h4 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+              <ShieldCheck className="text-blue-600" />
+              Regras de Uso e Segurança
+            </h4>
+            <div className="grid sm:grid-cols-2 gap-6">
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3 text-sm text-slate-600">
+                  <CheckCircle2 size={18} className="text-emerald-500 shrink-0 mt-0.5" />
+                  Respeite a capacidade indicada em cada máquina.
+                </li>
+                <li className="flex items-start gap-3 text-sm text-slate-600">
+                  <CheckCircle2 size={18} className="text-emerald-500 shrink-0 mt-0.5" />
+                  Utilize o cesto auxiliar como medidor.
+                </li>
+                <li className="flex items-start gap-3 text-sm text-slate-600">
+                  <CheckCircle2 size={18} className="text-emerald-500 shrink-0 mt-0.5" />
+                  Centrifugue 2x peças lavadas em máquinas domésticas.
+                </li>
+              </ul>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3 text-sm text-slate-600">
+                  <X size={18} className="text-red-500 shrink-0 mt-0.5" />
+                  Proibido lavar tapetes pesados ou peças com areia.
+                </li>
+                <li className="flex items-start gap-3 text-sm text-slate-600">
+                  <X size={18} className="text-red-500 shrink-0 mt-0.5" />
+                  Proibido peças com resíduos químicos ou graxa.
+                </li>
+                <li className="flex items-start gap-3 text-sm text-slate-600">
+                  <X size={18} className="text-red-500 shrink-0 mt-0.5" />
+                  Não utilize produtos próprios (sabão/amaciante).
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -613,25 +703,31 @@ export default function App() {
 
 
       {/* FAQ Section */}
-      <section id="faq" className="py-24 bg-slate-900/10">
+      <section id="faq" className="py-24 bg-white">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4">PERGUNTAS <span className="text-blue-500">FREQUENTES</span></h2>
-            <p className="text-slate-400">Tire suas dúvidas sobre o funcionamento da 2 Clicks.</p>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-slate-900">PERGUNTAS <span className="text-blue-600">FREQUENTES</span></h2>
+            <p className="text-slate-600">Tire suas dúvidas sobre o funcionamento da 2 Clicks.</p>
           </div>
 
           <div className="space-y-4">
-            {FAQS.map((faq, i) => (
+            {[
+              { q: "Precisa agendar horário?", a: "Não. O sistema é totalmente self-service, basta chegar e usar." },
+              { q: "Quanto tempo demora?", a: "Em média 1 hora entre lavagem e secagem. A lavagem dura aprox. 35min e a secagem 45min." },
+              { q: "Tem estacionamento?", a: "Sim! Oferecemos estacionamento exclusivo para nossos clientes em nossas unidades." },
+              { q: "Como funciona o cashback?", a: "É o nosso programa de fidelidade: a cada R$ 160,00 gastos no mês, você recebe automaticamente R$ 16,00 de crédito para usar no próximo mês." },
+              { q: "Posso sair enquanto a máquina funciona?", a: "Sim. O ambiente é monitorado 24h por câmeras de segurança, garantindo tranquilidade enquanto suas roupas são cuidadas." }
+            ].map((faq, i) => (
               <div 
                 key={i}
-                className="rounded-3xl border border-white/5 bg-white/5 overflow-hidden transition-all"
+                className="rounded-3xl border border-slate-100 bg-slate-50 overflow-hidden transition-all"
               >
                 <button 
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full p-6 md:p-8 flex items-center justify-between text-left hover:bg-white/5 transition-colors"
+                  className="w-full p-6 md:p-8 flex items-center justify-between text-left hover:bg-slate-100 transition-colors"
                 >
-                  <span className="font-bold text-lg md:text-xl pr-8">{faq.q}</span>
-                  <div className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center border border-white/10 transition-transform duration-300 ${openFaq === i ? 'rotate-180 bg-blue-600 border-blue-600' : ''}`}>
+                  <span className="font-bold text-lg md:text-xl pr-8 text-slate-900">{faq.q}</span>
+                  <div className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center border border-slate-200 transition-transform duration-300 ${openFaq === i ? 'rotate-180 bg-blue-600 border-blue-600 text-white' : 'text-slate-400'}`}>
                     <ChevronDown size={20} />
                   </div>
                 </button>
@@ -643,7 +739,7 @@ export default function App() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <div className="px-6 md:px-8 pb-8 text-slate-400 leading-relaxed">
+                      <div className="px-6 md:px-8 pb-8 text-slate-600 leading-relaxed">
                         {faq.a}
                       </div>
                     </motion.div>
@@ -656,23 +752,25 @@ export default function App() {
       </section>
 
       {/* Locations Section */}
-      <section id="unidades" className="py-24">
+      <section id="unidades" className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4">NOSSAS <span className="text-blue-500">UNIDADES</span></h2>
-            <p className="text-slate-400">Encontre a 2 Clicks mais próxima de você.</p>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-slate-900">NOSSAS <span className="text-blue-600">UNIDADES</span></h2>
+            <p className="text-slate-600">Encontre a 2 Clicks mais próxima de você em Mogi das Cruzes.</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">
             {[
               { 
-                name: "Alto do Ipiranga", 
-                address: "Rua Exemplo, 123 - Alto do Ipiranga, Mogi das Cruzes",
+                name: "Unidade Alto do Ipiranga", 
+                address: "Av. Japão – Mogi das Cruzes",
+                desc: "Estrutura moderna, estacionamento exclusivo, ambiente monitorado, espaço kids e Alexa.",
                 mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.123456789!2d-46.187654321!3d-23.523456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cdd8456789abcd%3A0x1234567890abcdef!2sAlto%20do%20Ipiranga%2C%20Mogi%20das%20Cruzes%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
               },
               { 
-                name: "Mogi Moderno", 
-                address: "Av. Exemplo, 456 - Mogi Moderno, Mogi das Cruzes",
+                name: "Unidade Mogi Moderno", 
+                address: "Bairro Mogi Moderno – Mogi das Cruzes",
+                desc: "Espaço confortável, máquinas profissionais e atendimento prático.",
                 mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.987654321!2d-46.198765432!3d-23.534567890!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cdd9876543210a%3A0x0987654321fedcba!2sMogi%20Moderno%2C%20Mogi%20das%20Cruzes%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000001!5m2!1spt-BR!2sbr"
               }
             ].map((loc, i) => (
@@ -683,21 +781,42 @@ export default function App() {
                 viewport={{ once: true }}
                 className="flex flex-col gap-6"
               >
-                <div className="p-8 rounded-3xl bg-white/5 border border-white/5 flex items-center gap-6 group hover:bg-white/10 transition-all">
-                  <div className="w-16 h-16 rounded-2xl bg-blue-600/10 flex items-center justify-center shrink-0 group-hover:bg-blue-600 transition-colors">
-                    <MapPin size={32} className="text-blue-500 group-hover:text-white transition-colors" />
+                <div className="p-8 rounded-3xl bg-white border border-slate-100 shadow-sm flex flex-col gap-6 group hover:shadow-md transition-all">
+                  <div className="flex items-center gap-6">
+                    <div className="w-16 h-16 rounded-2xl bg-blue-50 flex items-center justify-center shrink-0 group-hover:bg-blue-600 transition-colors">
+                      <MapPin size={32} className="text-blue-600 group-hover:text-white transition-colors" />
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold mb-1 text-slate-900">{loc.name}</h4>
+                      <p className="text-blue-600 text-sm font-bold mb-1">{loc.address}</p>
+                      <p className="text-slate-500 text-xs">{loc.desc}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="text-xl font-bold mb-2">{loc.name}</h4>
-                    <p className="text-slate-400 text-sm">{loc.address}</p>
+                  <div className="flex gap-4">
+                    <a 
+                      href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(loc.address)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-900 py-3 rounded-xl text-sm font-bold text-center transition-all"
+                    >
+                      Como Chegar
+                    </a>
+                    <a 
+                      href="https://wa.me/message/4LRPJ3HSDEXXB1"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 bg-blue-600 hover:bg-blue-500 text-white py-3 rounded-xl text-sm font-bold text-center transition-all"
+                    >
+                      Falar no WhatsApp
+                    </a>
                   </div>
                 </div>
-                <div className="rounded-3xl overflow-hidden border border-white/10 h-64 shadow-xl">
+                <div className="rounded-3xl overflow-hidden border border-slate-200 h-64 shadow-xl">
                   <iframe 
                     src={loc.mapUrl}
                     width="100%" 
                     height="100%" 
-                    style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) brightness(95%) contrast(90%)' }} 
+                    style={{ border: 0 }} 
                     allowFullScreen={true} 
                     loading="lazy" 
                     referrerPolicy="no-referrer-when-downgrade"
@@ -712,14 +831,14 @@ export default function App() {
 
 
       {/* Testimonials Section */}
-      <section className="py-24 bg-[#020617] overflow-hidden">
+      <section className="py-24 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4">O QUE DIZEM NOSSOS <span className="text-blue-500">CLIENTES</span></h2>
-            <p className="text-slate-400 max-w-lg">A satisfação de quem já utiliza a 2 Clicks Lavanderia é o nosso maior orgulho.</p>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-slate-900">PROVA <span className="text-blue-600">SOCIAL</span></h2>
+            <p className="text-slate-600 max-w-lg">A 2 Clicks é reconhecida pelos clientes pela praticidade, limpeza do ambiente e qualidade das máquinas.</p>
           </div>
           <a 
-            href="https://g.page/r/YOUR_GOOGLE_REVIEW_LINK/review" 
+            href="https://wa.me/message/4LRPJ3HSDEXXB1" 
             target="_blank" 
             rel="noopener noreferrer"
             className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-2xl font-bold flex items-center gap-2 transition-all shadow-xl shadow-blue-600/20 shrink-0"
@@ -743,7 +862,7 @@ export default function App() {
             {[...TESTIMONIALS, ...TESTIMONIALS].map((item, i) => (
               <div 
                 key={i} 
-                className="w-80 p-8 rounded-[2rem] bg-white/5 border border-white/5 flex flex-col justify-between shrink-0 hover:border-blue-500/30 transition-all"
+                className="w-80 p-8 rounded-[2rem] bg-slate-50 border border-slate-100 flex flex-col justify-between shrink-0 hover:border-blue-500/30 transition-all shadow-sm"
               >
                 <div>
                   <div className="flex gap-1 mb-4">
@@ -751,12 +870,12 @@ export default function App() {
                       <Star key={i} size={16} className="text-yellow-500 fill-yellow-500" />
                     ))}
                   </div>
-                  <Quote size={32} className="text-blue-500/20 mb-4" />
-                  <p className="text-slate-300 text-sm leading-relaxed italic">"{item.text}"</p>
+                  <Quote size={32} className="text-blue-500/10 mb-4" />
+                  <p className="text-slate-600 text-sm leading-relaxed italic">"{item.text}"</p>
                 </div>
-                <div className="mt-8 pt-6 border-t border-white/5">
-                  <p className="font-bold text-white">{item.name}</p>
-                  <p className="text-xs text-slate-500 uppercase tracking-widest mt-1">Cliente Verificado</p>
+                <div className="mt-8 pt-6 border-t border-slate-200">
+                  <p className="font-bold text-slate-900">{item.name}</p>
+                  <p className="text-xs text-slate-400 uppercase tracking-widest mt-1">Cliente Verificado</p>
                 </div>
               </div>
             ))}
@@ -767,8 +886,8 @@ export default function App() {
       {/* 2 Clicks Sneakers Section */}
       <section id="sneakers" className="py-24 bg-blue-600 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-          <div className="absolute top-10 left-10 rotate-12"><Footprints size={120} /></div>
-          <div className="absolute bottom-10 right-10 -rotate-12"><Footprints size={120} /></div>
+          <div className="absolute top-10 left-10 rotate-12"><Footprints size={120} className="text-white" /></div>
+          <div className="absolute bottom-10 right-10 -rotate-12"><Footprints size={120} className="text-white" /></div>
         </div>
         
         <div className="max-w-7xl mx-auto px-6 relative">
@@ -784,50 +903,35 @@ export default function App() {
               <p className="text-xl text-blue-50 font-medium mb-8 leading-relaxed">
                 Não é apenas uma lavagem, é um protocolo técnico de restauração. Unimos tecnologia industrial com finalização manual detalhada para preservar a vida útil do seu par.
               </p>
-
-              {/* Sneakers Video */}
-              <div className="relative rounded-[2rem] overflow-hidden border border-white/20 shadow-2xl mb-12 aspect-video">
-                <video 
-                  autoPlay 
-                  loop 
-                  muted 
-                  playsInline 
-                  className="w-full h-full object-cover"
-                >
-                  <source src={SNEAKERS_VIDEO_URL} type="video/mp4" />
-                </video>
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-600/40 to-transparent pointer-events-none" />
-              </div>
               
-              <div className="grid sm:grid-cols-3 gap-6 mb-12">
+              <div className="grid sm:grid-cols-2 gap-6 mb-12">
                 {[
-                  { icon: ShieldCheck, title: "Processo Controlado", desc: "Couro, camurça, knit e mesh." },
-                  { icon: Zap, title: "Esterilização UV", desc: "Elimina 99,9% de fungos e bactérias." },
-                  { icon: Maximize2, title: "Preservação", desc: "Foco na estrutura e durabilidade." }
+                  { icon: ShieldCheck, title: "Processo Controlado", desc: "Higienização que respeita materiais delicados como couro e camurça." },
+                  { icon: Zap, title: "Esterilização UV", desc: "Elimina 99,9% de fungos e bactérias, acabando com odores." },
+                  { icon: Maximize2, title: "Preservação", desc: "Foco em preservar a estrutura e prolongar a vida útil." },
+                  { icon: Box, title: "Sistema Lockers", desc: "Praticidade total com nossos armários dentro da lavanderia." }
                 ].map((item, i) => (
-                  <div key={i} className="p-6 rounded-3xl bg-white/10 border border-white/20">
-                    <item.icon className="text-white mb-4" size={24} />
-                    <h4 className="text-sm font-bold text-white mb-2">{item.title}</h4>
-                    <p className="text-blue-100 text-xs leading-relaxed">{item.desc}</p>
+                  <div key={i} className="flex gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
+                      <item.icon size={20} className="text-white" />
+                    </div>
+                    <div>
+                      <h4 className="text-white font-bold text-sm">{item.title}</h4>
+                      <p className="text-blue-100 text-xs leading-relaxed">{item.desc}</p>
+                    </div>
                   </div>
                 ))}
               </div>
 
               <div className="flex flex-wrap gap-4">
                 <a 
-                  href="https://2clickssneakers.com.br" 
-                  target="_blank" 
+                  href="https://wa.me/message/4LRPJ3HSDEXXB1"
+                  target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white text-blue-600 px-8 py-4 rounded-2xl font-bold flex items-center gap-2 hover:bg-blue-50 transition-all shadow-xl shadow-black/10"
+                  className="bg-white text-blue-600 px-8 py-4 rounded-2xl font-bold flex items-center gap-2 hover:bg-blue-50 transition-all shadow-xl"
                 >
-                  Visitar site Sneakers
+                  Falar com Especialista
                   <ChevronRight size={20} />
-                </a>
-                <a 
-                  href="https://wa.me/5511999999999" 
-                  className="bg-blue-800/40 text-white border border-white/20 px-8 py-4 rounded-2xl font-bold flex items-center gap-2 hover:bg-blue-800/60 transition-all"
-                >
-                  Falar com especialista
                 </a>
               </div>
             </div>
@@ -881,27 +985,27 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 border-t border-white/5 bg-black">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex items-center gap-2">
-            <span className="text-xl font-black tracking-tighter">2 CLICKS <span className="text-blue-500 uppercase">Lavanderia</span></span>
-          </div>
+      <footer className="py-12 bg-white border-t border-slate-100">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+            <div className="flex items-center gap-2">
+              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-xl text-white">2C</div>
+              <span className="text-xl font-black tracking-tighter text-slate-900">2 CLICKS <span className="text-blue-600 uppercase">Lavanderia</span></span>
+            </div>
+            
+            <div className="flex items-center gap-6">
+              <a href="https://instagram.com/2clickslavanderia" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-600 transition-colors">
+                <Instagram size={24} />
+              </a>
+              <a href="https://wa.me/message/4LRPJ3HSDEXXB1" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-600 transition-colors">
+                <MessageCircle size={24} />
+              </a>
+            </div>
 
-          <div className="flex items-center gap-6 text-slate-400">
-            <a href="https://instagram.com/2clickslavanderia" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-              <Instagram size={24} />
-            </a>
-            <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-              <MessageCircle size={24} />
-            </a>
-            <button onClick={() => scrollToSection('unidades')} className="hover:text-white transition-colors">
-              <MapPin size={24} />
-            </button>
+            <p className="text-slate-400 text-sm font-medium">
+              © 2026 2 Clicks Lavanderia. Todos os direitos reservados.
+            </p>
           </div>
-
-          <p className="text-sm text-slate-500 font-medium">
-            © 2026 2 Clicks Lavanderia. Todos os direitos reservados.
-          </p>
         </div>
       </footer>
 
