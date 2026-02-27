@@ -38,7 +38,7 @@ import { useState, useEffect } from 'react';
 const VIDEO_URL = "https://ophugihxmlphgcryuode.supabase.co/storage/v1/object/sign/inova7/2c%20lav%20hero%20video.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82NjhkNTkyYi05MDM0LTRjNjgtYmI3Ny03YzYzYTA2NTM0OTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbm92YTcvMmMgbGF2IGhlcm8gdmlkZW8ubXA0IiwiaWF0IjoxNzcyMTIwMjkyLCJleHAiOjE4MDM2NTYyOTJ9.qTOyylmOAlNrLD4no3joWZsW3EZPzL_chjxPV693DWc";
 const ESTRUTURA_VIDEO_URL = "https://ophugihxmlphgcryuode.supabase.co/storage/v1/object/sign/inova7/2c%20estrutrura%20video.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82NjhkNTkyYi05MDM0LTRjNjgtYmI3Ny03YzYzYTA2NTM0OTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbm92YTcvMmMgZXN0cnV0cnVyYSB2aWRlby5tcDQiLCJpYXQiOjE3NzIxMjE0NjMsImV4cCI6MTgwMzY1NzQ2M30.BkyQ9VERBxoEi3_dUJwErFgB6gdLjzbvf-9l3_IIoCo";
 const TOTEM_VIDEO_URL = "https://ophugihxmlphgcryuode.supabase.co/storage/v1/object/sign/inova7/2%20c%20maquina.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82NjhkNTkyYi05MDM0LTRjNjgtYmI3Ny03YzYzYTA2NTM0OTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbm92YTcvMiBjIG1hcXVpbmEubXA0IiwiaWF0IjoxNzcyMTIzNDU2LCJleHAiOjE4MDM2NTk0NTZ9.47-mlOZDSt2WycyCiSmdI5NGTkQgPiEyAIMFgr0m-2I";
-const SNEAKERS_VIDEO_URL = "https://ophugihxmlphgcryuode.supabase.co/storage/v1/object/sign/inova7/grok%20video%202%20click%20snakers.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82NjhkNTkyYi05MDM0LTRjNjgtYmI3Ny03YzYzYTA2NTM0OTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbm92YTcvZ3JvayB2aWRlbyAyIGNsaWNrIHNuYWtlcnMubXA0IiwiaWF0IjoxNzcyMTI2ODg2LCJleHAiOjE4MDM2NjI4ODZ9.eQmR89Usrcvf81T2cVT0CQ5oB2iS7UUzXTp99T59Y0w";
+const SNEAKERS_VIDEO_URL = "https://ophugihxmlphgcryuode.supabase.co/storage/v1/object/sign/inova7/grok%20video%202%20click%20snakers.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82NjhkNTkyYi05MDM0LTRjNjgtYmI3Ny03YzYzYTA2NTM0OTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbm92YTcvZ3JvayB2aWRlbyAyIGNsaWNrIHNuYWtlcnMubXA0IiwiaWF0IjoxNzcyMjI2OTEyLCJleHAiOjE4OTgzNzA5MTJ9.zAUa7GuHMKgoQNsUfC8c9nnpHgtGPQa4D1kcNJkMg8c";
 
 const INSTAGRAM_IMAGES = [
   "https://ophugihxmlphgcryuode.supabase.co/storage/v1/object/sign/inova7/Captura%20de%20tela%202026-02-26%20130849.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82NjhkNTkyYi05MDM0LTRjNjgtYmI3Ny03YzYzYTA2NTM0OTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbm92YTcvQ2FwdHVyYSBkZSB0ZWxhIDIwMjYtMDItMjYgMTMwODQ5LnBuZyIsImlhdCI6MTc3MjEyMjIzMiwiZXhwIjoxODAzNjU4MjMyfQ.sSuKlVlyJ9f7ObNCArUM-NkboA_8T-lJUjj8BF0usws",
@@ -266,7 +266,7 @@ export default function App() {
                     </div>
                     <div>
                       <p className="text-slate-900 font-black">2 Clicks Lavanderia</p>
-                      <p className="text-slate-600 text-sm font-medium">Sua roupa pronta em 1 hora</p>
+                      <p className="text-slate-600 text-sm font-medium">Sua roupa pronta em aproximadamente 1 hora</p>
                     </div>
                   </div>
                 </div>
@@ -433,12 +433,12 @@ export default function App() {
               { 
                 icon: Sparkles, 
                 title: "Cupons", 
-                desc: "Clientes cadastrados recebem promoções e condições especiais ao longo do ano via WhatsApp." 
+                desc: "Clientes cadastrados recebem promoções e condições especiais. O cadastro é feito presencialmente em nossas unidades." 
               },
               { 
                 icon: Star, 
                 title: "Promoções", 
-                desc: "Campanhas especiais divulgadas em nossas redes sociais e unidades." 
+                desc: "Campanhas especiais divulgadas em nossas redes sociais e unidades. Venha nos visitar para participar." 
               }
             ].map((item, i) => (
               <motion.div 
@@ -458,15 +458,13 @@ export default function App() {
             ))}
           </div>
           <div className="mt-12 text-center">
-            <a 
-              href="https://wa.me/message/4LRPJ3HSDEXXB1"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-8 py-4 rounded-2xl font-bold transition-all shadow-lg shadow-emerald-600/10"
+            <button 
+              onClick={() => scrollToSection('unidades')}
+              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-2xl font-bold transition-all shadow-lg shadow-blue-600/20"
             >
-              Quero me cadastrar agora
+              Ver Unidades e Como Chegar
               <ChevronRight size={20} />
-            </a>
+            </button>
           </div>
         </div>
       </section>
@@ -716,7 +714,7 @@ export default function App() {
               { q: "Quanto tempo demora?", a: "Em média 1 hora entre lavagem e secagem. A lavagem dura aprox. 35min e a secagem 45min." },
               { q: "Tem estacionamento?", a: "Sim! Oferecemos estacionamento exclusivo para nossos clientes em nossas unidades." },
               { q: "Como funciona o cashback?", a: "É o nosso programa de fidelidade: a cada R$ 160,00 gastos no mês, você recebe automaticamente R$ 16,00 de crédito para usar no próximo mês." },
-              { q: "Posso sair enquanto a máquina funciona?", a: "Sim. O ambiente é monitorado 24h por câmeras de segurança, garantindo tranquilidade enquanto suas roupas são cuidadas." }
+              { q: "Posso vir apenas para secar minhas roupas?", a: "Sim! Você pode trazer suas roupas já lavadas de casa. Para garantir a eficiência da secagem e evitar ciclos extras, recomendamos que as peças tenham sido centrifugadas duas vezes em sua máquina doméstica antes de serem colocadas em nossas secadoras profissionais." }
             ].map((faq, i) => (
               <div 
                 key={i}
@@ -925,18 +923,40 @@ export default function App() {
 
               <div className="flex flex-wrap gap-4">
                 <a 
-                  href="https://wa.me/message/4LRPJ3HSDEXXB1"
+                  href="https://2clicks-sneakers.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-white text-blue-600 px-8 py-4 rounded-2xl font-bold flex items-center gap-2 hover:bg-blue-50 transition-all shadow-xl"
                 >
-                  Falar com Especialista
+                  Visitar Site Sneakers
                   <ChevronRight size={20} />
+                </a>
+                <a 
+                  href="https://wa.me/message/4LRPJ3HSDEXXB1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-blue-800/40 text-white border border-white/20 px-8 py-4 rounded-2xl font-bold flex items-center gap-2 hover:bg-blue-800/60 transition-all"
+                >
+                  Falar com Especialista
                 </a>
               </div>
             </div>
 
             <div className="space-y-8">
+              {/* Sneakers Video */}
+              <div className="relative rounded-[2rem] overflow-hidden border border-white/20 shadow-2xl aspect-video">
+                <video 
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline 
+                  className="w-full h-full object-cover"
+                >
+                  <source src={SNEAKERS_VIDEO_URL} type="video/mp4" />
+                </video>
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-600/40 to-transparent pointer-events-none" />
+              </div>
+
               <div className="bg-white/10 backdrop-blur-md border border-white/20 p-10 rounded-[3rem]">
                 <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
                   <Box className="text-blue-200" />
