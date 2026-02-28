@@ -30,7 +30,8 @@ import {
   ClipboardList,
   Search,
   PackageOpen,
-  Sparkles
+  Sparkles,
+  ShoppingBasket
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from 'react';
@@ -38,7 +39,7 @@ import { useState, useEffect } from 'react';
 const VIDEO_URL = "https://ophugihxmlphgcryuode.supabase.co/storage/v1/object/sign/inova7/2c%20lav%20hero%20video.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82NjhkNTkyYi05MDM0LTRjNjgtYmI3Ny03YzYzYTA2NTM0OTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbm92YTcvMmMgbGF2IGhlcm8gdmlkZW8ubXA0IiwiaWF0IjoxNzcyMTIwMjkyLCJleHAiOjE4MDM2NTYyOTJ9.qTOyylmOAlNrLD4no3joWZsW3EZPzL_chjxPV693DWc";
 const ESTRUTURA_VIDEO_URL = "https://ophugihxmlphgcryuode.supabase.co/storage/v1/object/sign/inova7/2c%20estrutrura%20video.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82NjhkNTkyYi05MDM0LTRjNjgtYmI3Ny03YzYzYTA2NTM0OTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbm92YTcvMmMgZXN0cnV0cnVyYSB2aWRlby5tcDQiLCJpYXQiOjE3NzIxMjE0NjMsImV4cCI6MTgwMzY1NzQ2M30.BkyQ9VERBxoEi3_dUJwErFgB6gdLjzbvf-9l3_IIoCo";
 const TOTEM_VIDEO_URL = "https://ophugihxmlphgcryuode.supabase.co/storage/v1/object/sign/inova7/2%20c%20maquina.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82NjhkNTkyYi05MDM0LTRjNjgtYmI3Ny03YzYzYTA2NTM0OTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbm92YTcvMiBjIG1hcXVpbmEubXA0IiwiaWF0IjoxNzcyMTIzNDU2LCJleHAiOjE4MDM2NTk0NTZ9.47-mlOZDSt2WycyCiSmdI5NGTkQgPiEyAIMFgr0m-2I";
-const SNEAKERS_VIDEO_URL = "https://ophugihxmlphgcryuode.supabase.co/storage/v1/object/sign/inova7/grok%20video%202%20click%20snakers.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82NjhkNTkyYi05MDM0LTRjNjgtYmI3Ny03YzYzYTA2NTM0OTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbm92YTcvZ3JvayB2aWRlbyAyIGNsaWNrIHNuYWtlcnMubXA0IiwiaWF0IjoxNzcyMjI2OTEyLCJleHAiOjE4OTgzNzA5MTJ9.zAUa7GuHMKgoQNsUfC8c9nnpHgtGPQa4D1kcNJkMg8c";
+const SNEAKERS_VIDEO_URL = "https://ophugihxmlphgcryuode.supabase.co/storage/v1/object/sign/inova7/grok%20video%202%20click%20snakers.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82NjhkNTkyYi05MDM0LTRjNjgtYmI3Ny03YzYzYTA2NTM0OTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbm92YTcvZ3JvayB2aWRlbyAyIGNsaWNrIHNuYWtlcnMubXA0IiwiaWF0IjoxNzcyMjQxNDM4LCJleHAiOjE4NjY4NDk0Mzh9.gDFB0UoFsLg0X5osJW_y-Yu4i8XHaa-LPoydQvkCYSk";
 
 const INSTAGRAM_IMAGES = [
   "https://ophugihxmlphgcryuode.supabase.co/storage/v1/object/sign/inova7/Captura%20de%20tela%202026-02-26%20130849.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82NjhkNTkyYi05MDM0LTRjNjgtYmI3Ny03YzYzYTA2NTM0OTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbm92YTcvQ2FwdHVyYSBkZSB0ZWxhIDIwMjYtMDItMjYgMTMwODQ5LnBuZyIsImlhdCI6MTc3MjEyMjIzMiwiZXhwIjoxODAzNjU4MjMyfQ.sSuKlVlyJ9f7ObNCArUM-NkboA_8T-lJUjj8BF0usws",
@@ -130,10 +131,24 @@ export default function App() {
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-blue-500/30">
       {/* Navigation */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md border-b border-slate-200 py-4' : 'bg-transparent py-6'}`}>
-        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+        {/* Scrolling Banner */}
+        <div className="bg-blue-600 text-white py-1.5 overflow-hidden whitespace-nowrap">
+          <motion.div 
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="inline-block"
+          >
+            {[...Array(10)].map((_, i) => (
+              <span key={i} className="inline-block px-8 text-[10px] font-black uppercase tracking-[0.2em]">
+                FÁCIL • PRÁTICO • ECONÔMICO
+              </span>
+            ))}
+          </motion.div>
+        </div>
+        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center mt-2">
           <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-xl shadow-lg shadow-blue-600/20 text-white">2C</div>
-            <span className="text-xl font-bold tracking-tight hidden sm:block text-blue-600">2 Clicks</span>
+            <span className="text-xl font-bold tracking-tight hidden sm:block text-blue-600">2 Clicks Lavanderia</span>
           </div>
 
           <div className="hidden md:flex items-center gap-8">
@@ -215,7 +230,7 @@ export default function App() {
               Lavanderia Self-Service em Mogi das Cruzes – <span className="text-blue-600">Rápida, Moderna e com Benefícios Exclusivos</span>
             </h1>
             <p className="text-lg text-slate-600 max-w-lg mb-10 leading-relaxed">
-              Na 2 Clicks Lavanderia você lava e seca suas roupas em aproximadamente 1 hora, com máquinas profissionais, esterilização UV, estacionamento exclusivo e vantagens para clientes cadastrados.
+              Na 2 Clicks Lavanderia você lava e seca suas roupas em aproximadamente 1 hora, com produtos <span className="font-bold text-blue-600">OMO e Comfort</span> inclusos, esterilização UV e total autonomia.
             </p>
             <div className="flex flex-wrap gap-4">
               <button 
@@ -266,7 +281,7 @@ export default function App() {
                     </div>
                     <div>
                       <p className="text-slate-900 font-black">2 Clicks Lavanderia</p>
-                      <p className="text-slate-600 text-sm font-medium">Sua roupa pronta em aproximadamente 1 hora</p>
+                      <p className="text-slate-600 text-sm font-medium">Sua roupa pronta em 1 hora</p>
                     </div>
                   </div>
                 </div>
@@ -292,7 +307,7 @@ export default function App() {
                 DEVOLVENDO <span className="text-blue-600">TEMPO</span> PARA VOCÊ
               </h2>
               <p className="text-lg text-slate-600 leading-relaxed mb-6">
-                A 2 Clicks Lavanderia nasceu com um propósito simples: devolver tempo para as pessoas.
+                A 2 Clicks Lavanderia nasceu com um propósito simples: devolver tempo com economia e praticidade para as pessoas.
               </p>
               <p className="text-slate-600 leading-relaxed mb-8">
                 Somos referência em lavanderia self-service em Mogi das Cruzes, oferecendo uma estrutura moderna, ambiente seguro e equipamentos de alta performance que garantem mais eficiência e cuidado com suas roupas.
@@ -338,14 +353,14 @@ export default function App() {
             <p className="text-slate-600">Na 2 Clicks você tem eficiência, segurança e comodidade no mesmo lugar.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { icon: Zap, title: "Alta Performance", desc: "Máquinas industriais de última geração." },
-              { icon: ShieldCheck, title: "Esterilização UV", desc: "Máxima higiene em todas as lavagens." },
-              { icon: MapPin, title: "Estacionamento", desc: "Vagas exclusivas para nossos clientes." },
-              { icon: Clock, title: "Ambiente 24h", desc: "Monitorado e seguro a qualquer hora." },
-              { icon: Maximize2, title: "Conforto", desc: "Estrutura organizada e climatizada." },
-              { icon: CheckCircle2, title: "Intuitivo", desc: "Processo rápido e sem burocracia." }
-            ].map((item, i) => (
+              {[
+                { icon: Zap, title: "Alta Performance", desc: "Máquinas industriais de última geração com alta capacidade e produtos OMO/Comfort." },
+                { icon: ShieldCheck, title: "Esterilização UV", desc: "Luz ultravioleta que elimina 99.9% de germes e bactérias." },
+                { icon: MapPin, title: "Estacionamento", desc: "Vagas exclusivas na porta para sua total comodidade." },
+                { icon: Clock, title: "Funcionamento 24h", desc: "Sempre aberto, sábado, domingo e feriados 24 horas." },
+                { icon: Maximize2, title: "Conforto", desc: "Estrutura organizada e climatizada com Wi-Fi, Alexa e espaço kids." },
+                { icon: Coins, title: "Cashback", desc: "Quem escolhe a 2 Clicks regularmente aproveita benefícios especiais de forma automática. Porque fidelidade merece retorno." }
+              ].map((item, i) => (
               <motion.div 
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
@@ -361,6 +376,55 @@ export default function App() {
                 <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Amenities Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div className="order-2 md:order-1">
+              <div className="grid grid-cols-2 gap-6">
+                {[
+                  { icon: Zap, title: "Wi-Fi Grátis", desc: "Conecte-se enquanto espera." },
+                  { icon: Maximize2, title: "Ar Condicionado", desc: "Ambiente sempre climatizado." },
+                  { icon: Star, title: "Espaço Kids", desc: "Diversão para os pequenos." },
+                  { icon: Volume2, title: "Alexa", desc: "Peça sua música favorita." }
+                ].map((item, i) => (
+                  <div key={i} className="p-6 rounded-3xl bg-slate-50 border border-slate-100 text-center group hover:bg-blue-600 transition-all">
+                    <item.icon size={32} className="mx-auto mb-4 text-blue-600 group-hover:text-white transition-colors" />
+                    <h4 className="font-bold text-slate-900 group-hover:text-white mb-1">{item.title}</h4>
+                    <p className="text-xs text-slate-500 group-hover:text-blue-100">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="order-1 md:order-2">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-xs font-bold uppercase tracking-wider mb-6">
+                Conforto Total
+              </div>
+              <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-8 text-slate-900">
+                MAIS QUE UMA LAVANDERIA, UM <span className="text-blue-600">ESPAÇO PARA VOCÊ</span>
+              </h2>
+              <p className="text-lg text-slate-600 leading-relaxed mb-6">
+                Projetamos nossas unidades para que sua espera seja produtiva ou relaxante. Enquanto suas roupas são cuidadas pela melhor tecnologia do mercado, você aproveita nossas comodidades.
+              </p>
+              <ul className="space-y-4">
+                <li className="flex items-center gap-3 text-slate-700 font-medium">
+                  <CheckCircle2 className="text-emerald-500" size={20} />
+                  Ambiente monitorado 24h por câmeras.
+                </li>
+                <li className="flex items-center gap-3 text-slate-700 font-medium">
+                  <CheckCircle2 className="text-emerald-500" size={20} />
+                  Bancada para dobrar roupas com praticidade.
+                </li>
+                <li className="flex items-center gap-3 text-slate-700 font-medium">
+                  <CheckCircle2 className="text-emerald-500" size={20} />
+                  Localização privilegiada e segura.
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -433,12 +497,12 @@ export default function App() {
               { 
                 icon: Sparkles, 
                 title: "Cupons", 
-                desc: "Clientes cadastrados recebem promoções e condições especiais. O cadastro é feito presencialmente em nossas unidades." 
+                desc: "Clientes cadastrados recebem promoções e condições especiais ao longo do ano via WhatsApp." 
               },
               { 
                 icon: Star, 
                 title: "Promoções", 
-                desc: "Campanhas especiais divulgadas em nossas redes sociais e unidades. Venha nos visitar para participar." 
+                desc: "Campanhas especiais divulgadas em nossas redes sociais e unidades." 
               }
             ].map((item, i) => (
               <motion.div 
@@ -458,13 +522,15 @@ export default function App() {
             ))}
           </div>
           <div className="mt-12 text-center">
-            <button 
-              onClick={() => scrollToSection('unidades')}
-              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-2xl font-bold transition-all shadow-lg shadow-blue-600/20"
+            <a 
+              href="https://wa.me/message/4LRPJ3HSDEXXB1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-8 py-4 rounded-2xl font-bold transition-all shadow-lg shadow-emerald-600/10"
             >
-              Ver Unidades e Como Chegar
+              Quero me cadastrar agora
               <ChevronRight size={20} />
-            </button>
+            </a>
           </div>
         </div>
       </section>
@@ -487,7 +553,7 @@ export default function App() {
               
               <div className="space-y-8">
                 {[
-                  { step: "1", title: "Traga suas roupas", desc: "Não precisa agendar. Venha quando for melhor para você." },
+                  { step: "1", title: "Meça suas peças no cesto medidor", desc: "Peças soltas, abertas sem compactar para o fundo. Apenas solte as peças até chegar à borda." },
                   { step: "2", title: "Escolha a máquina", desc: "Selecione a máquina ideal para o volume de roupas (Um ou Dois Cestos)." },
                   { step: "3", title: "Pague no Totem", desc: "Realize o pagamento diretamente no painel via Cartão ou Pix." },
                   { step: "4", title: "Lave e Seque", desc: "Em aproximadamente 1 hora suas roupas estarão limpas e secas." }
@@ -547,7 +613,7 @@ export default function App() {
                 secar: "16,00", 
                 lavarTime: "35 min",
                 secarTime: "45 min",
-                desc: "Ideal para roupas do dia a dia e volumes moderados.",
+                desc: "Ideal para roupas do dia a dia, roupas leves e toalhas.",
                 popular: false
               },
               { 
@@ -556,7 +622,7 @@ export default function App() {
                 secar: "34,00", 
                 lavarTime: "35 min",
                 secarTime: "45 min",
-                desc: "Capacidade industrial para grandes volumes e edredons.",
+                desc: "Capacidade industrial para edredons King e grandes volumes.",
                 popular: true
               }
             ].map((plan, i) => (
@@ -581,14 +647,14 @@ export default function App() {
                       <span className="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Lavar (~{plan.lavarTime})</span>
                       <span className="text-2xl font-black text-slate-900">R$ {plan.lavar}</span>
                     </div>
-                    <CheckCircle2 className="text-blue-500" size={24} />
+                    <ShoppingBasket className="text-blue-500" size={24} />
                   </div>
                   <div className="flex justify-between items-center p-4 bg-slate-50 rounded-2xl">
                     <div>
                       <span className="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Secar (~{plan.secarTime})</span>
                       <span className="text-2xl font-black text-slate-900">R$ {plan.secar}</span>
                     </div>
-                    <CheckCircle2 className="text-blue-500" size={24} />
+                    <ShoppingBasket className="text-blue-500" size={24} />
                   </div>
                 </div>
 
@@ -620,6 +686,10 @@ export default function App() {
                   <CheckCircle2 size={18} className="text-emerald-500 shrink-0 mt-0.5" />
                   Meça as peças sempre soltas, sem compactar no cesto e ultrapassar a borda.
                 </li>
+                <li className="flex items-start gap-3 text-sm text-slate-600">
+                  <CheckCircle2 size={18} className="text-emerald-500 shrink-0 mt-0.5" />
+                  Respeite a ordem de chegada.
+                </li>
               </ul>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3 text-sm text-slate-600">
@@ -632,10 +702,36 @@ export default function App() {
                 </li>
                 <li className="flex items-start gap-3 text-sm text-slate-600">
                   <X size={18} className="text-red-500 shrink-0 mt-0.5" />
-                  Não utilize produtos próprios (sabão/amaciante).
+                  Não adicione roupas sem centrifugar em nossas secadoras.
                 </li>
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Washing Tips Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-slate-900">DICAS DE <span className="text-blue-600">LAVAGEM</span></h2>
+            <p className="text-slate-600">Siga nossas recomendações para um resultado impecável.</p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { title: "Separe por Cores", desc: "Lave roupas brancas separadas das coloridas para evitar manchas." },
+              { title: "Verifique Bolsos", desc: "Retire moedas, chaves ou papéis que possam danificar as máquinas." },
+              { title: "Feche Zíperes", desc: "Zíperes abertos podem enroscar e rasgar outras peças delicadas." },
+              { title: "Não Sobrecarregue", desc: "Respeite o limite do cesto para que a água e o sabão circulem bem." }
+            ].map((tip, i) => (
+              <div key={i} className="p-8 rounded-3xl bg-slate-50 border border-slate-100 group hover:border-blue-500 transition-all">
+                <div className="w-12 h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-black mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                  {i + 1}
+                </div>
+                <h4 className="font-bold text-slate-900 mb-2">{tip.title}</h4>
+                <p className="text-sm text-slate-500 leading-relaxed">{tip.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -712,7 +808,8 @@ export default function App() {
               { q: "Como funciona o cashback?", a: "É o nosso programa de fidelidade: a cada R$ 160,00 gastos no mês, você recebe automaticamente R$ 16,00 de crédito para usar no próximo mês." },
               { q: "Posso usar apenas para secar?", a: "Pode trazer somente para secar, sim! Porém, recomendamos que as peças sejam centrifugadas duas vezes quando lavadas em máquinas domésticas, para garantir melhor desempenho na secagem. Utilize o cesto auxiliar de roupas limpas como referência para medir a capacidade ideal da secadora. É fundamental que as roupas estejam bem centrifugadas e dentro da capacidade indicada, para que o ciclo de 45 minutos seja suficiente para uma secagem eficiente." },
               { q: "A máquina já finalizou, mas ainda tem roupas dentro. Posso retirar para usar?", a: "Sim. Conforme nossas condições de uso, se o ciclo já foi finalizado e o responsável pelas roupas não estiver presente, você pode retirar as peças para utilizar a máquina. Pedimos apenas que utilize os cestos auxiliares de roupas limpas para acomodá-las e deixe-as organizadas embaixo da mesa de apoio. Assim mantemos o fluxo da lavanderia funcionando e garantimos respeito entre todos os clientes." },
-              { q: "Posso sair enquanto a máquina funciona?", a: "Sim. O ambiente é monitorado 24h por câmeras de segurança, garantindo tranquilidade enquanto suas roupas são cuidadas." }
+              { q: "Posso sair enquanto a máquina funciona?", a: "Sim, porém recomendamos que você acompanhe o tempo da sua lavagem ou secagem e esteja presente ao término do ciclo. Como a lavanderia é self-service e funciona com fluxo contínuo, caso o ciclo já tenha finalizado e o responsável não esteja no local, as roupas poderão ser retiradas pelo próximo cliente, utilizando os cestos auxiliares para roupas limpas e acomodadas de forma organizada. Essa medida garante respeito, agilidade e o bom funcionamento da unidade para todos." },
+              { q: "Quantas peças cabem em um cesto?", a: "A capacidade pode variar de acordo com o tamanho e o tipo das peças. Considerando roupas de uso pessoal do dia a dia (camisetas, calças, bermudas, roupas íntimas, toalhas leves), um cesto comporta em média entre 20 e 25 peças. Para garantir melhor desempenho na lavagem e secagem, recomendamos não ultrapassar o limite do cesto utilizando corretamente sem forçar a capacidade." }
             ].map((faq, i) => (
               <div 
                 key={i}
@@ -760,14 +857,14 @@ export default function App() {
               { 
                 name: "Unidade Alto do Ipiranga", 
                 address: "Av. Japão – Mogi das Cruzes",
-                desc: "Estrutura moderna, estacionamento exclusivo, ambiente monitorado, espaço kids e Alexa.",
-                mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.123456789!2d-46.187654321!3d-23.523456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cdd8456789abcd%3A0x1234567890abcdef!2sAlto%20do%20Ipiranga%2C%20Mogi%20das%20Cruzes%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
+                desc: "Estrutura moderna com estacionamento exclusivo, ambiente 100% monitorado e espaço confortável para toda a família. Tecnologia profissional e atendimento dedicado para uma experiência 2 Clicks completa.",
+                mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.208173420888!2d-46.19064432467161!3d-23.52504287882583!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cdd86903f7e09b%3A0x6d9f7a7f7f7f7f7f!2sAv.%20Jap%C3%A3o%2C%201941%20-%20Alto%20do%20Ipiranga%2C%20Mogi%20das%20Cruzes%20-%20SP%2C%2008730-700!5e0!3m2!1spt-BR!2sbr!4v1709000000000!5m2!1spt-BR!2sbr"
               },
               { 
                 name: "Unidade Mogi Moderno", 
-                address: "Bairro Mogi Moderno – Mogi das Cruzes",
-                desc: "Espaço confortável, máquinas profissionais e atendimento prático.",
-                mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.987654321!2d-46.198765432!3d-23.534567890!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cdd9876543210a%3A0x0987654321fedcba!2sMogi%20Moderno%2C%20Mogi%20das%20Cruzes%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000001!5m2!1spt-BR!2sbr"
+                address: "Rua Dr. Deodato Wertheimer – Mogi das Cruzes",
+                desc: "Ambiente prático e funcional no coração do bairro, com máquinas profissionais, fluxo otimizado e atendimento ágil. Ideal para quem busca eficiência e praticidade sem abrir mão da qualidade 2 Clicks.",
+                mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.087654321!2d-46.198765432!3d-23.534567890!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cdd9876543210a%3A0x0987654321fedcba!2sR.%20Dr.%20Deodato%20Wertheimer%2C%202220%20-%20Mogi%20Moderno%2C%20Mogi%20das%20Cruzes%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1709000000001!5m2!1spt-BR!2sbr"
               }
             ].map((loc, i) => (
               <motion.div 
@@ -788,36 +885,23 @@ export default function App() {
                       <p className="text-slate-500 text-xs">{loc.desc}</p>
                     </div>
                   </div>
-                  <div className="flex flex-col gap-3">
-                    <div className="flex gap-4">
-                      <a 
-                        href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(loc.address)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-900 py-3 rounded-xl text-sm font-bold text-center transition-all"
-                      >
-                        Como Chegar
-                      </a>
-                      <a 
-                        href="https://wa.me/message/4LRPJ3HSDEXXB1"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1 bg-blue-600 hover:bg-blue-500 text-white py-3 rounded-xl text-sm font-bold text-center transition-all"
-                      >
-                        WhatsApp
-                      </a>
-                    </div>
-                    {loc.name.includes("Moderno") && (
-                      <a 
-                        href="https://g.page/r/Cew9iD9yhuUdEBM/review"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full bg-yellow-50 hover:bg-yellow-100 text-yellow-700 py-3 rounded-xl text-sm font-bold text-center transition-all flex items-center justify-center gap-2 border border-yellow-200"
-                      >
-                        <Star size={16} fill="currentColor" />
-                        Avaliar Unidade no Google
-                      </a>
-                    )}
+                  <div className="flex gap-4">
+                    <a 
+                      href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(loc.address)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-900 py-3 rounded-xl text-sm font-bold text-center transition-all"
+                    >
+                      Como Chegar
+                    </a>
+                    <a 
+                      href="https://wa.me/message/4LRPJ3HSDEXXB1"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 bg-blue-600 hover:bg-blue-500 text-white py-3 rounded-xl text-sm font-bold text-center transition-all"
+                    >
+                      Falar no WhatsApp
+                    </a>
                   </div>
                 </div>
                 <div className="rounded-3xl overflow-hidden border border-slate-200 h-64 shadow-xl">
@@ -934,28 +1018,28 @@ export default function App() {
 
               <div className="flex flex-wrap gap-4">
                 <a 
-                  href="https://2clicks-sneakers.vercel.app/"
+                  href="https://wa.me/message/4LRPJ3HSDEXXB1"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-white text-blue-600 px-8 py-4 rounded-2xl font-bold flex items-center gap-2 hover:bg-blue-50 transition-all shadow-xl"
                 >
-                  Visitar Site Sneakers
+                  Falar com Especialista
                   <ChevronRight size={20} />
                 </a>
                 <a 
-                  href="https://wa.me/message/4LRPJ3HSDEXXB1"
+                  href="https://2clickssneakers.com.br"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-blue-800/40 text-white border border-white/20 px-8 py-4 rounded-2xl font-bold flex items-center gap-2 hover:bg-blue-800/60 transition-all"
+                  className="bg-blue-500 text-white px-8 py-4 rounded-2xl font-bold flex items-center gap-2 hover:bg-blue-400 transition-all shadow-xl border border-white/20"
                 >
-                  Falar com Especialista
+                  Visitar Site Sneakers
+                  <ChevronRight size={20} />
                 </a>
               </div>
             </div>
 
-            <div className="space-y-8">
-              {/* Sneakers Video */}
-              <div className="relative rounded-[2rem] overflow-hidden border border-white/20 shadow-2xl aspect-video">
+            <div className="relative">
+              <div className="rounded-[3rem] overflow-hidden border border-white/20 shadow-2xl aspect-square lg:aspect-auto lg:h-[600px]">
                 <video 
                   autoPlay 
                   loop 
@@ -965,50 +1049,10 @@ export default function App() {
                 >
                   <source src={SNEAKERS_VIDEO_URL} type="video/mp4" />
                 </video>
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-600/40 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent pointer-events-none" />
               </div>
-
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 p-10 rounded-[3rem]">
-                <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
-                  <Box className="text-blue-200" />
-                  Sistema de Armários (Lockers)
-                </h3>
-                <div className="space-y-6">
-                  {[
-                    { icon: MapPin, title: "Deixe o tênis", desc: "Vá até uma unidade, use um armário e deposite a chave." },
-                    { icon: Smartphone, title: "Avise no WhatsApp", desc: "Informe o número da porta utilizada." },
-                    { icon: ClipboardList, title: "Cadastro e Triagem", desc: "Link para cadastro e análise técnica da equipe." },
-                    { icon: PackageOpen, title: "Retirada", desc: "Avisamos assim que seu par estiver pronto." }
-                  ].map((step, i) => (
-                    <div key={i} className="flex gap-4">
-                      <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center shrink-0 text-white">
-                        <step.icon size={20} />
-                      </div>
-                      <div>
-                        <h5 className="font-bold text-white text-sm">{step.title}</h5>
-                        <p className="text-blue-100 text-xs leading-relaxed">{step.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 p-10 rounded-[3rem]">
-                <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
-                  <MapPin className="text-blue-200" />
-                  Onde encontrar (Unidades em Mogi)
-                </h3>
-                <div className="space-y-4">
-                  <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
-                    <p className="text-xs font-bold text-blue-200 uppercase tracking-widest mb-1">Mogi Moderno</p>
-                    <p className="text-sm text-white">Rua Dr. Deodato Wertheimer, 2220</p>
-                  </div>
-                  <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
-                    <p className="text-xs font-bold text-blue-200 uppercase tracking-widest mb-1">Alto do Ipiranga</p>
-                    <p className="text-sm text-white">Av. Japão, 1941</p>
-                  </div>
-                  <p className="text-xs text-blue-100 italic mt-4">*(Os armários ficam dentro da 2 Clicks Lavanderia)*</p>
-                </div>
+              <div className="absolute -bottom-6 -right-6 bg-white p-8 rounded-3xl shadow-2xl hidden md:block">
+                <p className="text-blue-600 text-2xl font-black italic">Seu tênis novo de novo!</p>
               </div>
             </div>
           </div>
@@ -1042,7 +1086,7 @@ export default function App() {
 
       {/* Floating WhatsApp */}
       <a 
-        href="https://wa.me/5511999999999" 
+        href="https://wa.me/message/4LRPJ3HSDEXXB1" 
         target="_blank" 
         rel="noopener noreferrer"
         className="fixed bottom-8 right-8 w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl shadow-green-500/20 hover:scale-110 transition-transform z-50"
