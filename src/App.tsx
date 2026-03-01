@@ -40,6 +40,7 @@ const VIDEO_URL = "https://ophugihxmlphgcryuode.supabase.co/storage/v1/object/si
 const ESTRUTURA_VIDEO_URL = "https://ophugihxmlphgcryuode.supabase.co/storage/v1/object/sign/inova7/2c%20estrutrura%20video.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82NjhkNTkyYi05MDM0LTRjNjgtYmI3Ny03YzYzYTA2NTM0OTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbm92YTcvMmMgZXN0cnV0cnVyYSB2aWRlby5tcDQiLCJpYXQiOjE3NzIxMjE0NjMsImV4cCI6MTgwMzY1NzQ2M30.BkyQ9VERBxoEi3_dUJwErFgB6gdLjzbvf-9l3_IIoCo";
 const TOTEM_VIDEO_URL = "https://ophugihxmlphgcryuode.supabase.co/storage/v1/object/sign/inova7/2%20c%20maquina.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82NjhkNTkyYi05MDM0LTRjNjgtYmI3Ny03YzYzYTA2NTM0OTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbm92YTcvMiBjIG1hcXVpbmEubXA0IiwiaWF0IjoxNzcyMTIzNDU2LCJleHAiOjE4MDM2NTk0NTZ9.47-mlOZDSt2WycyCiSmdI5NGTkQgPiEyAIMFgr0m-2I";
 const SNEAKERS_VIDEO_URL = "https://ophugihxmlphgcryuode.supabase.co/storage/v1/object/sign/inova7/grok%20video%202%20click%20snakers.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82NjhkNTkyYi05MDM0LTRjNjgtYmI3Ny03YzYzYTA2NTM0OTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbm92YTcvZ3JvayB2aWRlbyAyIGNsaWNrIHNuYWtlcnMubXA0IiwiaWF0IjoxNzcyMjQxNDM4LCJleHAiOjE4NjY4NDk0Mzh9.gDFB0UoFsLg0X5osJW_y-Yu4i8XHaa-LPoydQvkCYSk";
+const LOGO_URL = "https://ophugihxmlphgcryuode.supabase.co/storage/v1/object/sign/inova7/Captura%20de%20tela%202026-03-01%20130109.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82NjhkNTkyYi05MDM0LTRjNjgtYmI3Ny03YzYzYTA2NTM0OTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbm92YTcvQ2FwdHVyYSBkZSB0ZWxhIDIwMjYtMDMtMDEgMTMwMTA5LnBuZyIsImlhdCI6MTc3MjM4MDkyNCwiZXhwIjoxODY2OTg4OTI0fQ.5Uz9c9C7YxdHXSb9GDOPnFjSS5EYTha-epdizyGgnVs";
 
 const INSTAGRAM_IMAGES = [
   "https://ophugihxmlphgcryuode.supabase.co/storage/v1/object/sign/inova7/Captura%20de%20tela%202026-02-26%20130849.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV82NjhkNTkyYi05MDM0LTRjNjgtYmI3Ny03YzYzYTA2NTM0OTAiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJpbm92YTcvQ2FwdHVyYSBkZSB0ZWxhIDIwMjYtMDItMjYgMTMwODQ5LnBuZyIsImlhdCI6MTc3MjEyMjIzMiwiZXhwIjoxODAzNjU4MjMyfQ.sSuKlVlyJ9f7ObNCArUM-NkboA_8T-lJUjj8BF0usws",
@@ -75,7 +76,7 @@ const FAQS = [
   },
   {
     q: "Quanto tempo leva para lavar e secar?",
-    a: "O ciclo de lavagem dura aproximadamente 30 minutos e o de secagem cerca de 45 minutos. Em pouco mais de uma hora, você tem suas roupas prontas para uso."
+    a: "Nossos ciclos são otimizados para sua praticidade. Em aproximadamente meia hora, você já pode ter suas roupas prontas para uso."
   },
   {
     q: "Posso lavar edredons de casal ou king?",
@@ -104,6 +105,22 @@ const FAQS = [
   {
     q: "Qual o limite de roupas por máquina?",
     a: "Para garantir a qualidade da lavagem, você deve respeitar a marca de limite indicada no cesto medidor. Não aperte as roupas; elas devem ficar soltas para que a água e os produtos circulem."
+  },
+  {
+    q: "A mesma máquina lava e seca?",
+    a: "Não. As máquinas de baixo são lavadoras e as de cima são secadoras. Após a lavagem, é necessário transferir as peças para a secadora para finalizar o processo."
+  },
+  {
+    q: "Fica alguém na loja para ajudar?",
+    a: "Não temos atendimento presencial fixo na unidade. Porém, oferecemos atendimento humanizado através do interfone de fácil acesso na loja e também plantão via WhatsApp, para auxiliar você sempre que precisar."
+  },
+  {
+    q: "Posso deixar minhas roupas para vocês lavarem?",
+    a: "Sim, é possível. Mediante contato prévio e pagamento de taxa extra de serviço cobrado por cesto, podemos realizar o processo para você com prazo de entrega em até 24h."
+  },
+  {
+    q: " Vocês fazem delivery?",
+    a: "Não realizamos delivery próprio. Mas você pode utilizar o aplicativo de entregas da sua preferência para enviar e receber suas roupas. Recebemos e despachamos para você conforme combinado."
   }
 ];
 
@@ -147,7 +164,12 @@ export default function App() {
         </div>
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center mt-2">
           <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-xl shadow-lg shadow-blue-600/20 text-white">2C</div>
+            <img 
+              src={LOGO_URL} 
+              alt="2 Clicks Lavanderia Logo" 
+              className="w-10 h-10 object-contain rounded-lg shadow-lg shadow-blue-600/20"
+              referrerPolicy="no-referrer"
+            />
             <span className="text-xl font-bold tracking-tight hidden sm:block text-blue-600">2 Clicks Lavanderia</span>
           </div>
 
@@ -230,7 +252,7 @@ export default function App() {
               Lavanderia Self-Service em Mogi das Cruzes – <span className="text-blue-600">Rápida, Moderna e com Benefícios Exclusivos</span>
             </h1>
             <p className="text-lg text-slate-600 max-w-lg mb-10 leading-relaxed">
-              Na 2 Clicks Lavanderia você lava e seca suas roupas em aproximadamente 1 hora, com produtos <span className="font-bold text-blue-600">OMO e Comfort</span> inclusos, esterilização UV e total autonomia.
+              Na 2 Clicks Lavanderia você lava e seca suas roupas em aproximadamente meia hora, com produtos <span className="font-bold text-blue-600">profissionais</span> inclusos, esterilização UV e total autonomia.
             </p>
             <div className="flex flex-wrap gap-4">
               <button 
@@ -247,10 +269,10 @@ export default function App() {
                 Como Funciona
               </button>
               <button 
-                onClick={() => scrollToSection('benefícios')}
+                onClick={() => scrollToSection('preços')}
                 className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 text-white px-8 py-4 rounded-2xl font-bold transition-all shadow-lg shadow-emerald-600/10"
               >
-                Quero Ganhar Benefícios
+                Quero lavar agora
               </button>
             </div>
           </motion.div>
@@ -276,12 +298,15 @@ export default function App() {
               <div className="absolute bottom-8 left-8 right-8">
                 <div className="bg-white/80 backdrop-blur-md p-6 rounded-3xl border border-white/20 shadow-xl">
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-2xl bg-blue-600 flex items-center justify-center shadow-lg">
-                      <Zap size={24} className="text-white fill-white" />
-                    </div>
+                    <img 
+                      src={LOGO_URL} 
+                      alt="Logo" 
+                      className="w-12 h-12 object-contain rounded-2xl shadow-lg"
+                      referrerPolicy="no-referrer"
+                    />
                     <div>
                       <p className="text-slate-900 font-black">2 Clicks Lavanderia</p>
-                      <p className="text-slate-600 text-sm font-medium">Sua roupa pronta em 1 hora</p>
+                      <p className="text-slate-600 text-sm font-medium">Sua roupa pronta em aproximadamente meia hora</p>
                     </div>
                   </div>
                 </div>
@@ -304,16 +329,16 @@ export default function App() {
                 Sobre a 2 Clicks
               </div>
               <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-8 text-slate-900">
-                DEVOLVENDO <span className="text-blue-600">TEMPO</span> PARA VOCÊ
+                DEVOLVENDO <span className="text-blue-600">TEMPO, ECONOMIA E PRATICIDADE</span> PARA VOCÊ
               </h2>
               <p className="text-lg text-slate-600 leading-relaxed mb-6">
-                A 2 Clicks Lavanderia nasceu com um propósito simples: devolver tempo com economia e praticidade para as pessoas.
+                A 2 Clicks Lavanderia foi fundada em 2022 com um propósito simples: devolver tempo, economia e praticidade para você.
               </p>
               <p className="text-slate-600 leading-relaxed mb-8">
                 Somos referência em lavanderia self-service em Mogi das Cruzes, oferecendo uma estrutura moderna, ambiente seguro e equipamentos de alta performance que garantem mais eficiência e cuidado com suas roupas.
               </p>
               <p className="text-slate-600 leading-relaxed font-medium">
-                Aqui você encontra praticidade, economia, autonomia e tecnologia para resolver tudo em cerca de 1 hora — sem burocracia e sem esperar dias para retirar suas peças.
+                Aqui você encontra praticidade, economia, autonomia e tecnologia para resolver tudo em aproximadamente meia hora — sem burocracia e sem esperar dias para retirar suas peças.
               </p>
             </motion.div>
 
@@ -354,7 +379,7 @@ export default function App() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
-                { icon: Zap, title: "Alta Performance", desc: "Máquinas industriais de última geração com alta capacidade e produtos OMO/Comfort." },
+                { icon: Zap, title: "Alta Performance", desc: "Máquinas industriais de última geração com alta capacidade e produtos profissionais." },
                 { icon: ShieldCheck, title: "Esterilização UV", desc: "Luz ultravioleta que elimina 99.9% de germes e bactérias." },
                 { icon: MapPin, title: "Estacionamento", desc: "Vagas exclusivas na porta para sua total comodidade." },
                 { icon: Clock, title: "Funcionamento 24h", desc: "Sempre aberto, sábado, domingo e feriados 24 horas." },
@@ -556,7 +581,7 @@ export default function App() {
                   { step: "1", title: "Meça suas peças no cesto medidor", desc: "Peças soltas, abertas sem compactar para o fundo. Apenas solte as peças até chegar à borda." },
                   { step: "2", title: "Escolha a máquina", desc: "Selecione a máquina ideal para o volume de roupas (Um ou Dois Cestos)." },
                   { step: "3", title: "Pague no Totem", desc: "Realize o pagamento diretamente no painel via Cartão ou Pix." },
-                  { step: "4", title: "Lave e Seque", desc: "Em aproximadamente 1 hora suas roupas estarão limpas e secas." }
+                  { step: "4", title: "Lave e Seque", desc: "Em aproximadamente meia hora suas roupas estarão limpas e secas." }
                 ].map((item, i) => (
                   <div key={i} className="flex gap-6 items-start">
                     <div className="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-black shrink-0">
@@ -664,7 +689,7 @@ export default function App() {
                   rel="noopener noreferrer"
                   className="w-full py-4 rounded-2xl font-bold flex items-center justify-center gap-2 transition-all bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-600/20"
                 >
-                  Quero Ganhar Benefícios
+                  Quero lavar agora
                   <ChevronRight size={18} />
                 </a>
               </motion.div>
@@ -719,7 +744,7 @@ export default function App() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { title: "Separe por Cores", desc: "Lave roupas brancas separadas das coloridas para evitar manchas." },
+              { title: "Separe por Cores e Tamanhos", desc: "Lave roupas brancas separadas das coloridas e separe peças grandes de pequenas para uma lavagem uniforme." },
               { title: "Verifique Bolsos", desc: "Retire moedas, chaves ou papéis que possam danificar as máquinas." },
               { title: "Feche Zíperes", desc: "Zíperes abertos podem enroscar e rasgar outras peças delicadas." },
               { title: "Não Sobrecarregue", desc: "Respeite o limite do cesto para que a água e o sabão circulem bem." }
@@ -803,7 +828,7 @@ export default function App() {
           <div className="space-y-4">
             {[
               { q: "Precisa agendar horário?", a: "Não. O sistema é totalmente self-service, basta chegar e usar." },
-              { q: "Quanto tempo demora?", a: "Em média 1 hora entre lavagem e secagem. A lavagem dura aprox. 35min e a secagem 45min." },
+              { q: "Quanto tempo demora?", a: "Em média meia hora entre lavagem e secagem. Nossos ciclos são ultra rápidos e eficientes." },
               { q: "Tem estacionamento?", a: "Sim! Oferecemos estacionamento exclusivo para nossos clientes em nossas unidades." },
               { q: "Como funciona o cashback?", a: "É o nosso programa de fidelidade: a cada R$ 160,00 gastos no mês, você recebe automaticamente R$ 16,00 de crédito para usar no próximo mês." },
               { q: "Posso usar apenas para secar?", a: "Pode trazer somente para secar, sim! Porém, recomendamos que as peças sejam centrifugadas duas vezes quando lavadas em máquinas domésticas, para garantir melhor desempenho na secagem. Utilize o cesto auxiliar de roupas limpas como referência para medir a capacidade ideal da secadora. É fundamental que as roupas estejam bem centrifugadas e dentro da capacidade indicada, para que o ciclo de 45 minutos seja suficiente para uma secagem eficiente." },
@@ -928,7 +953,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-6 mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div>
             <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4 text-slate-900">PROVA <span className="text-blue-600">SOCIAL</span></h2>
-            <p className="text-slate-600 max-w-lg">A 2 Clicks é reconhecida pelos clientes pela praticidade, limpeza do ambiente e qualidade das máquinas.</p>
+            <p className="text-slate-600 max-w-lg">A 2 Clicks é reconhecida pelos clientes pela praticidade, limpeza do ambiente e qualidade das máquinas. Temos mais de 600 avaliações no Google!</p>
           </div>
           <a 
             href="https://g.page/r/Cew9iD9yhuUdEBM/review" 
@@ -1052,7 +1077,7 @@ export default function App() {
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent pointer-events-none" />
               </div>
               <div className="absolute -bottom-6 -right-6 bg-white p-8 rounded-3xl shadow-2xl hidden md:block">
-                <p className="text-blue-600 text-2xl font-black italic">Seu tênis novo de novo!</p>
+                <p className="text-blue-600 text-2xl font-black italic">Seu tênis limpo como novo!</p>
               </div>
             </div>
           </div>
@@ -1064,7 +1089,12 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
             <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-xl text-white">2C</div>
+              <img 
+                src={LOGO_URL} 
+                alt="2 Clicks Lavanderia Logo" 
+                className="w-10 h-10 object-contain rounded-lg"
+                referrerPolicy="no-referrer"
+              />
               <span className="text-xl font-black tracking-tighter text-slate-900">2 CLICKS <span className="text-blue-600 uppercase">Lavanderia</span></span>
             </div>
             
